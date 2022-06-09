@@ -35,10 +35,18 @@ public class KlientService {
     public List<Klient> getKlientTable(){
         session.beginTransaction();
 
-        Query query = session.createQuery("from Klient");
+        Query query = session.createQuery("from Klient_Tabelka");
 
         session.getTransaction().commit();
 
         return query.list();
+    }
+    public static void main(String[] args) {
+        KlientService klientService = new KlientService();
+        List<Klient> klientTable = klientService.getKlientTable();
+
+        System.out.println(klientTable);
+
+
     }
 }

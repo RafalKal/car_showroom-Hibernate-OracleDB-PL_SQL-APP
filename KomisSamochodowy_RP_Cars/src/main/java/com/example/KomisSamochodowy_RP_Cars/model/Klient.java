@@ -54,12 +54,6 @@ public class Klient implements Serializable {
     @Column(name="nip")
     private String nip;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
-    private List<Transakcja_kupna> transakcje_kupna;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
-    private List<Leasing> leasingi;
-
     public Klient(String imie, String nazwisko,
                   String pesel, String email,
                   String numer_dowodu, String telefon,
@@ -194,21 +188,5 @@ public class Klient implements Serializable {
 
     public void setNip(String nip) {
         this.nip = nip;
-    }
-
-    public List<Transakcja_kupna> getTransakcje_kupna() {
-        return transakcje_kupna;
-    }
-
-    public void setTransakcje_kupna(List<Transakcja_kupna> transakcje_kupna) {
-        this.transakcje_kupna = transakcje_kupna;
-    }
-
-    public List<Leasing> getLeasingi() {
-        return leasingi;
-    }
-
-    public void setLeasingi(List<Leasing> leasingi) {
-        this.leasingi = leasingi;
     }
 }
