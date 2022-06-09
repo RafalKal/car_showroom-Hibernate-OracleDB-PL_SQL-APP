@@ -74,6 +74,24 @@ public class Klient implements Serializable {
         this.nip = nip;
     }
 
+    public Klient(String imie, String nazwisko,
+                  LocalDate data_urodzenia, String pesel,
+                  String numer_dowodu, String email,
+                  String telefon, String miejscowosc,
+                  String kod_pocztowy, String ulica, int numer_domu) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.data_urodzenia = data_urodzenia;
+        this.pesel = pesel;
+        this.numer_dowodu = numer_dowodu;
+        this.email = email;
+        this.telefon = telefon;
+        this.miejscowosc = miejscowosc;
+        this.kod_pocztowy = kod_pocztowy;
+        this.ulica = ulica;
+        this.numer_domu = numer_domu;
+    }
+
     public Klient() {
     }
 

@@ -112,12 +112,11 @@ public class AddKlientForm {
                 nip = textField13.getText();
 
                 Klient klient = new Klient(imie, nazwisko,
-                        pesel, email,
-                        numer_dowodu, telefon,
-                        data_urodzenia, miejscowosc,
-                        kod_pocztowy, ulica,
-                        numer_domu, firma, nip
-                );
+                                            pesel, email,
+                                            numer_dowodu, telefon,
+                                            data_urodzenia, miejscowosc,
+                                            kod_pocztowy, ulica,
+                                            numer_domu, firma, nip);
 
                 klientService.saveKlient(klient);
                 window.close();
@@ -129,19 +128,19 @@ public class AddKlientForm {
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1, textField1,
-                label2, textField2,
-                label3, textField3,
-                label4, textField4,
-                label5, textField5,
-                label6, textField6,
-                label7, textField7,
-                label8, textField8,
-                label9, textField9,
-                label10, textField10,
-                label11, textField11,
-                label12, textField12,
-                label13, textField13,
-                submitButton, buttonInAlert);
+                                    label2, textField2,
+                                    label3, textField3,
+                                    label4, textField4,
+                                    label5, textField5,
+                                    label6, textField6,
+                                    label7, textField7,
+                                    label8, textField8,
+                                    label9, textField9,
+                                    label10, textField10,
+                                    label11, textField11,
+                                    label12, textField12,
+                                    label13, textField13,
+                                    submitButton, buttonInAlert);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
