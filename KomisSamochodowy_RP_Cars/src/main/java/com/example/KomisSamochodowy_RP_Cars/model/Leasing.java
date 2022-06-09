@@ -13,7 +13,7 @@ public class Leasing implements Serializable{
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "egzemplarz_id")
     private Egzemplarz egzemplarz;
 

@@ -34,7 +34,7 @@ public class LeasingService {
     public List<Leasing> getLeasingTable(){
         session.beginTransaction();
 
-        Query query = session.createQuery("from Leasing");
+        Query query = session.createQuery("from Leasing_Tabelka");
 
         session.getTransaction().commit();
 
