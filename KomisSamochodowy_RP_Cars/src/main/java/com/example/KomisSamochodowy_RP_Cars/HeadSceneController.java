@@ -458,8 +458,8 @@ public class HeadSceneController implements Initializable {
 
         //--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|
         idLeasinguColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Integer>("id"));
-        idKlientaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Klient>("klient_id"));
-        idEgzemplarzaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Egzemplarz>("egzemplarz_id"));
+        idKlientaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Klient>("klient"));
+        idEgzemplarzaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Egzemplarz>("egzemplarz"));
         dataPoczatekColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_początek"));
         dataKoncowaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_koniec"));
         oplataMiesiecznaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Double>("oplata_miesieczna"));
@@ -470,8 +470,8 @@ public class HeadSceneController implements Initializable {
 
         //---- TRANSAKCJE KUPNA INITIALIZE ----|---- TRANSAKCJE KUPNA INITIALIZE ----|
         idTransakcjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("id"));
-        idKlientaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Klient>("klient_id"));
-        idEgzemplarzaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Egzemplarz>("egzemplarz_id"));
+        idKlientaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Klient>("klient"));
+        idEgzemplarzaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Egzemplarz>("egzemplarz"));
         dataZakupuColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, LocalDate>("data_zakupu"));
         dlugoscGwarancjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("dlugosc_gwarancji"));
 
