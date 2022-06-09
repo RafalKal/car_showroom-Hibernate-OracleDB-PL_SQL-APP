@@ -40,4 +40,11 @@ public class KlientService {
 
         return query.list();
     }
+
+    public Klient getKlientById(int id) {
+        session.beginTransaction();
+        Klient klient = (Klient) session.get(Klient.class, id);
+        session.getTransaction().commit();
+        return klient;
+    }
 }

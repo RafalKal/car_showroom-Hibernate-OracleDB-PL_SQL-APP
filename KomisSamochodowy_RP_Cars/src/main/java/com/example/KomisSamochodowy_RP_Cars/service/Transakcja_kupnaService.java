@@ -1,6 +1,7 @@
 package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
+import com.example.KomisSamochodowy_RP_Cars.model.Model;
 import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -38,5 +39,11 @@ public class Transakcja_kupnaService {
         session.getTransaction().commit();
 
         return query.list();
+    }
+    public Transakcja_kupna getTransakcja_kupnaById(int id) {
+        session.beginTransaction();
+        Transakcja_kupna transakcja_kupna = (Transakcja_kupna) session.get(Transakcja_kupna.class, id);
+        session.getTransaction().commit();
+        return transakcja_kupna;
     }
 }

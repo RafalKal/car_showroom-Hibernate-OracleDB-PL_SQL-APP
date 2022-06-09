@@ -54,4 +54,10 @@ public class EgzemplarzService {
 
         return query.list();
     }
+    public Egzemplarz getEgzemplarzById(int id) {
+        session.beginTransaction();
+        Egzemplarz egzemplarz = (Egzemplarz) session.get(Egzemplarz.class, id);
+        session.getTransaction().commit();
+        return egzemplarz;
+    }
 }
