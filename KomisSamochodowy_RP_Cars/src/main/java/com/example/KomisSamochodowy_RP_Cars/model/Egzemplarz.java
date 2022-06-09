@@ -1,13 +1,8 @@
 package com.example.KomisSamochodowy_RP_Cars.model;
 
-import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity(name = "Egzemplarz_Tabelka")
 @Table(name="EGZEMPLARZ_TABELKA")
 public class Egzemplarz implements Serializable{
@@ -63,6 +58,89 @@ public class Egzemplarz implements Serializable{
         this.kolor = kolor;
         this.vin = vin;
         this.dostepnosc = dostepnosc;
+        this.cena = cena;
+    }
+
+    public Egzemplarz() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public int getRok_produkcji() {
+        return rok_produkcji;
+    }
+
+    public void setRok_produkcji(int rok_produkcji) {
+        this.rok_produkcji = rok_produkcji;
+    }
+
+    public int getPojemnosc_silnika() {
+        return pojemnosc_silnika;
+    }
+
+    public void setPojemnosc_silnika(int pojemnosc_silnika) {
+        this.pojemnosc_silnika = pojemnosc_silnika;
+    }
+
+    public int getPrzebieg() {
+        return przebieg;
+    }
+
+    public void setPrzebieg(int przebieg) {
+        this.przebieg = przebieg;
+    }
+
+    public String getRodzaj_paliwa() {
+        return rodzaj_paliwa;
+    }
+
+    public void setRodzaj_paliwa(String rodzaj_paliwa) {
+        this.rodzaj_paliwa = rodzaj_paliwa;
+    }
+
+    public String getKolor() {
+        return kolor;
+    }
+
+    public void setKolor(String kolor) {
+        this.kolor = kolor;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public boolean isDostepnosc() {
+        return dostepnosc;
+    }
+
+    public void setDostepnosc(boolean dostepnosc) {
+        this.dostepnosc = dostepnosc;
+    }
+
+    public int getCena() {
+        return cena;
+    }
+
+    public void setCena(int cena) {
         this.cena = cena;
     }
 }

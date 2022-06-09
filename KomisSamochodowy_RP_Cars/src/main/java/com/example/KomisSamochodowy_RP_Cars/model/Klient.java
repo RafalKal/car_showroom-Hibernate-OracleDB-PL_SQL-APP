@@ -1,22 +1,18 @@
 package com.example.KomisSamochodowy_RP_Cars.model;
 
-import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity(name = "Klient_Tabelka")
 @Table(name="KLIENT_TABELKA")
 public class Klient implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    //@Column(name = "id")
     private int id;
 
     @Column(name="imie", length = 15)
@@ -83,5 +79,136 @@ public class Klient implements Serializable {
         this.numer_domu = numer_domu;
         this.firma = firma;
         this.nip = nip;
+    }
+
+    public Klient() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getImie() {
+        return imie;
+    }
+
+    public void setImie(String imie) {
+        this.imie = imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
+    }
+
+    public LocalDate getData_urodzenia() {
+        return data_urodzenia;
+    }
+
+    public void setData_urodzenia(LocalDate data_urodzenia) {
+        this.data_urodzenia = data_urodzenia;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public String getNumer_dowodu() {
+        return numer_dowodu;
+    }
+
+    public void setNumer_dowodu(String numer_dowodu) {
+        this.numer_dowodu = numer_dowodu;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public String getMiejscowosc() {
+        return miejscowosc;
+    }
+
+    public void setMiejscowosc(String miejscowosc) {
+        this.miejscowosc = miejscowosc;
+    }
+
+    public String getKod_pocztowy() {
+        return kod_pocztowy;
+    }
+
+    public void setKod_pocztowy(String kod_pocztowy) {
+        this.kod_pocztowy = kod_pocztowy;
+    }
+
+    public String getUlica() {
+        return ulica;
+    }
+
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
+
+    public int getNumer_domu() {
+        return numer_domu;
+    }
+
+    public void setNumer_domu(int numer_domu) {
+        this.numer_domu = numer_domu;
+    }
+
+    public String getFirma() {
+        return firma;
+    }
+
+    public void setFirma(String firma) {
+        this.firma = firma;
+    }
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
+    public List<Transakcja_kupna> getTransakcje_kupna() {
+        return transakcje_kupna;
+    }
+
+    public void setTransakcje_kupna(List<Transakcja_kupna> transakcje_kupna) {
+        this.transakcje_kupna = transakcje_kupna;
+    }
+
+    public List<Leasing> getLeasingi() {
+        return leasingi;
+    }
+
+    public void setLeasingi(List<Leasing> leasingi) {
+        this.leasingi = leasingi;
     }
 }

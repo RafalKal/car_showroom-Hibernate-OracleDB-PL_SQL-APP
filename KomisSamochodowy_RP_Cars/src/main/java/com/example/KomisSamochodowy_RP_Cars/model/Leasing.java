@@ -1,6 +1,5 @@
 package com.example.KomisSamochodowy_RP_Cars.model;
 
-import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
