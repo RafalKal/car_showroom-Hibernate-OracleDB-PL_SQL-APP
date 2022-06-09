@@ -33,7 +33,7 @@ public class Transakcja_kupnaService {
     public List<Transakcja_kupna> getTransakcja_kupnaTable(){
         session.beginTransaction();
 
-        Query query = session.createQuery("from Transakcja_kupna");
+        Query query = session.createQuery("from Transakcja_kupna_Tabelka");
 
         session.getTransaction().commit();
 

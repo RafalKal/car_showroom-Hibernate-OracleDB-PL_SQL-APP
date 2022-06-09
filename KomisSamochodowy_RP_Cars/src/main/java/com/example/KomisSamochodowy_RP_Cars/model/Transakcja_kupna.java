@@ -1,6 +1,5 @@
 package com.example.KomisSamochodowy_RP_Cars.model;
 
-import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,12 +15,12 @@ public class Transakcja_kupna implements Serializable{
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "klient_id")
-    private Klient klient;
-
-    @ManyToOne
     @JoinColumn(name = "egzemplarz_id")
     private Egzemplarz egzemplarz;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "klient_id")
+    private Klient klient;
 
     @Column(name="data_zakupu")
     private LocalDate data_zakupu;
@@ -50,20 +49,20 @@ public class Transakcja_kupna implements Serializable{
         this.id = id;
     }
 
-    public Klient getKlient() {
-        return klient;
-    }
-
-    public void setKlient(Klient klient) {
-        this.klient = klient;
-    }
-
     public Egzemplarz getEgzemplarz() {
         return egzemplarz;
     }
 
     public void setEgzemplarz(Egzemplarz egzemplarz) {
         this.egzemplarz = egzemplarz;
+    }
+
+    public Klient getKlient() {
+        return klient;
+    }
+
+    public void setKlient(Klient klient) {
+        this.klient = klient;
     }
 
     public LocalDate getData_zakupu() {
