@@ -7,6 +7,8 @@ import com.example.KomisSamochodowy_RP_Cars.service.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -150,7 +153,7 @@ public class HeadSceneController implements Initializable {
     @FXML
     private TableColumn<Egzemplarz, Integer> idEgzemplarzColumn;
     @FXML
-    private TableColumn<Egzemplarz, Model> idModeluColumn;
+    private TableColumn<Egzemplarz, Integer> idModeluColumn;
     @FXML
     private TableColumn<Egzemplarz, Integer> rokProdukcjiColumn;
     @FXML
@@ -422,7 +425,21 @@ public class HeadSceneController implements Initializable {
 
         //------- EGZEMPLARZ INITIALIZE -------|------- EGZEMPLARZ INITIALIZE -------|
         idEgzemplarzColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("id"));
-        idModeluColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Model>("model"));
+//        idModeluColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Model>("model"));
+//        idModeluColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Egzemplarz, String>, ObservableValue<String>>() {
+//            @Override
+//            public ObservableValue<String> call(TableColumn.CellDataFeatures<Egzemplarz, String> param) {
+//                return new SimpleStringProperty(param.getValue().getModel().getNazwa_modelu());
+//            }
+//        });
+
+        idModeluColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Egzemplarz,Integer>,ObservableValue<Integer>>(){
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Egzemplarz, Integer> param) {
+                return new SimpleIntegerProperty(param.getValue().getModel().getId()).asObject();
+            }
+        });
+
         rokProdukcjiColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("rok_produkcji"));
         przebiegColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("przebieg"));
         rodzajPaliwaColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, String>("rodzaj_paliwa"));
