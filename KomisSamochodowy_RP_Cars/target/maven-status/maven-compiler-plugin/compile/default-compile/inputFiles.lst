@@ -1,6 +1,28 @@
-/Users/admin/Desktop/Programowanie obiektowe II/PrOJEKTKOLEJNY/src/main/java/com/example/projektkolejny/model/Klient.java
-/Users/admin/Desktop/Programowanie obiektowe II/PrOJEKTKOLEJNY/src/main/java/module-info.java
-/Users/admin/Desktop/Programowanie obiektowe II/PrOJEKTKOLEJNY/src/main/java/com/example/projektkolejny/controller/SceneController.java
-/Users/admin/Desktop/Programowanie obiektowe II/PrOJEKTKOLEJNY/src/main/java/com/example/projektkolejny/HelloApplication.java
-/Users/admin/Desktop/Programowanie obiektowe II/PrOJEKTKOLEJNY/src/main/java/com/example/projektkolejny/controller/AlertBox.java
-/Users/admin/Desktop/Programowanie obiektowe II/PrOJEKTKOLEJNY/src/main/java/com/example/projektkolejny/SingletonConnection.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/LoginSceneController.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/service/LeasingService.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/BadInput.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/model/Klient.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/model/Transakcja_kupna.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/UpdateKlientForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/HeadSceneController.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/model/Leasing.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/service/Transakcja_kupnaService.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/AlertBox.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/service/EgzemplarzService.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/AddTransakcjaForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/AddLeasingForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/Validator.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/AddEgzemplarzForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/model/Model.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/service/ModelService.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/HibernateUtil/SingletonConnection.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/UpdateEgzemplarzForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/UpdateTransakcjaForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/UpdateModelForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/RestrictiveTextField.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/Application.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/AddModelForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/AddKlientForm.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/model/Egzemplarz.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/service/KlientService.java
+/Users/admin/Desktop/Hibernate_OracleDB_CRUD/KomisSamochodowy_RP_Cars/src/main/java/com/example/KomisSamochodowy_RP_Cars/controller/UpdateLeasingForm.java
