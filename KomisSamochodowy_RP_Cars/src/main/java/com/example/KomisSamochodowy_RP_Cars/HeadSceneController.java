@@ -141,7 +141,7 @@ public class HeadSceneController implements Initializable {
 
 
     /*
-   |------ EGZEMPLARZ TAB ------|------ EGZEMPLARZ TAB ------|------ EGZEMPLARZ TAB ------|
+   |------ EGZEMPLARZE TAB ------|------ EGZEMPLARZE TAB ------|------ EGZEMPLARZE TAB ------|
    */
     @FXML
     private Tab egzemplarzeTab;
@@ -207,7 +207,7 @@ public class HeadSceneController implements Initializable {
 
 
     /*
-    |------- KLIENT TAB -------|------- KLIENT TAB -------|------- KLIENT TAB -------|
+    |------- KLIENCI TAB -------|------- KLIENCI TAB -------|------- KLIENCI TAB -------|
     */
     @FXML
     private Tab klienciTab;
@@ -288,7 +288,7 @@ public class HeadSceneController implements Initializable {
     @FXML
     private TableColumn<Leasing, Integer> idKlientaColumn;
     @FXML
-    private TableColumn<Leasing, Long> idEgzemplarzaColumn;
+    private TableColumn<Leasing, Integer> idEgzemplarzaColumn;
     @FXML
     private TableColumn<Leasing, LocalDate> dataPoczatekColumn;
     @FXML
@@ -340,9 +340,9 @@ public class HeadSceneController implements Initializable {
     @FXML
     private TableColumn<Transakcja_kupna, Integer> idTransakcjiColumn;
     @FXML
-    private TableColumn<Transakcja_kupna, Integer> idKlienciColumn;
+    private TableColumn<Transakcja_kupna, Integer> idKlientaColumn1;
     @FXML
-    private TableColumn<Transakcja_kupna, Integer> idEgzemplarzyColumn;
+    private TableColumn<Transakcja_kupna, Integer> idEgzemplarzaColumn1;
     @FXML
     private TableColumn<Transakcja_kupna, LocalDate> dataZakupuColumn;
     @FXML
@@ -384,13 +384,19 @@ public class HeadSceneController implements Initializable {
 
     public ObservableList<Transakcja_kupna> transakcja_kupnaObservableList;
 
-
+    /*
+    |------- OPEN SESSION -------|------- OPEN SESSION -------|------- OPEN SESSION -------|
+    */
     private static final SessionFactory sessionFactory = SingletonConnection.getSessionFactory();
     private static final Session session = sessionFactory.openSession();
 
     private Stage stage;
     private Scene scene;
 
+
+    /*
+    |------- LOGOUT BUTTON -------|------- LOGOUT BUTTON -------|------- LOGOUT BUTTON -------|
+    */
     public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("loginScene.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -399,12 +405,14 @@ public class HeadSceneController implements Initializable {
         stage.show();
     }
 
+    /*
+   |------- DATA INITIALIZE COLUMN -------|------- DATA INITIALIZE COLUMN -------|------- DATA INITIALIZE COLUMN -------|
+   */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initClock();
 
         //---- MODELE INITIALIZE ----|---- MODELE INITIALIZE ----|---- MODELE INITIALIZE ----|
-
         idModelColumn.setCellValueFactory(new PropertyValueFactory<Model, Integer>("id"));
         markaColumn.setCellValueFactory(new PropertyValueFactory<Model, String>("marka"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<Model, String>("nazwa_modelu"));
@@ -415,7 +423,6 @@ public class HeadSceneController implements Initializable {
 
 
         //------- EGZEMPLARZ INITIALIZE -------|------- EGZEMPLARZ INITIALIZE -------|
-
         idEgzemplarzColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("id"));
         idModeluColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Model>("model_id"));
         rokProdukcjiColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("rok_produkcji"));
@@ -432,7 +439,6 @@ public class HeadSceneController implements Initializable {
 
 
         //--- KLIENCI INITIALIZE ---|--- KLIENCI INITIALIZE ---|--- KLIENCI INITIALIZE ---|
-
         idKlientColumn.setCellValueFactory(new PropertyValueFactory<Klient, Integer>("id"));
         imieColumn.setCellValueFactory(new PropertyValueFactory<Klient, String>("imie"));
         nazwiskoColumn.setCellValueFactory(new PropertyValueFactory<Klient, String>("nazwisko"));
@@ -454,10 +460,9 @@ public class HeadSceneController implements Initializable {
 
 
         //--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|
-
         idLeasinguColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Integer>("id"));
         idKlientaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Integer>("klient_id"));
-        //idEgzemplarzaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Long>("egzemplarz_id"));
+        idEgzemplarzaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Integer>("egzemplarz_id"));
         dataPoczatekColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_początek"));
         dataKoncowaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_koniec"));
         oplataMiesiecznaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Double>("oplata_miesieczna"));
@@ -467,10 +472,9 @@ public class HeadSceneController implements Initializable {
 
 
         //---- TRANSAKCJE KUPNA INITIALIZE ----|---- TRANSAKCJE KUPNA INITIALIZE ----|
-
         idTransakcjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("id"));
-        idKlienciColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("klient_id"));
-        idEgzemplarzyColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("egzemplarz_id"));
+        idKlientaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("klient_id"));
+        idEgzemplarzaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("egzemplarz_id"));
         dataZakupuColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, LocalDate>("data_zakupu"));
         dlugoscGwarancjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("dlugosc_gwarancji"));
         cenaTransakcjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("cena"));
@@ -478,5 +482,4 @@ public class HeadSceneController implements Initializable {
         leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
         leasingTableView.setItems(leasingObservableList);
     }
-
 }

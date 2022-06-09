@@ -5,11 +5,7 @@ import com.example.KomisSamochodowy_RP_Cars.model.Model;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.metamodel.EntityType;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -65,14 +61,4 @@ public class ModelService {
 
         return query.list();
     }
-
-    public static void main(String[] args) {
-        ModelService modelService = new ModelService();
-        List<Model> modelTable = modelService.getModelTable();
-
-        System.out.println(modelTable);
-
-
-    }
-
 }

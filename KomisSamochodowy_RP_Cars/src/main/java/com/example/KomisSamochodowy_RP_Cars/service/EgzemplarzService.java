@@ -54,13 +54,4 @@ public class EgzemplarzService {
 
         return query.list();
     }
-
-    public static void main(String[] args) {
-        EgzemplarzService egzemplarzService = new EgzemplarzService();
-        List<Egzemplarz> egzemplarzTable = egzemplarzService.getEgzemplarzTable();
-
-        System.out.println(egzemplarzTable);
-
-    }
-
 }

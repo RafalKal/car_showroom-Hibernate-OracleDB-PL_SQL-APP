@@ -31,7 +31,6 @@ public class KlientService {
         session.getTransaction().commit();
     }
 
-
     public List<Klient> getKlientTable(){
         session.beginTransaction();
 
@@ -40,13 +39,5 @@ public class KlientService {
         session.getTransaction().commit();
 
         return query.list();
-    }
-    public static void main(String[] args) {
-        KlientService klientService = new KlientService();
-        List<Klient> klientTable = klientService.getKlientTable();
-
-        System.out.println(klientTable);
-
-
     }
 }

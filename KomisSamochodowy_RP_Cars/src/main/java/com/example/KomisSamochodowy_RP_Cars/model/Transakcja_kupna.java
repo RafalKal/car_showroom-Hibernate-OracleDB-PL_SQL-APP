@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
 @Entity(name = "Transakcja_kupna_Tabelka")
 @Table(name="TRANSAKCJA_KUPNA_TABELKA")
 public class Transakcja_kupna implements Serializable{
