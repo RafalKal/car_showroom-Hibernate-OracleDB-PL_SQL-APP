@@ -121,8 +121,8 @@
                   <TableView fx:id="transakcjeTableView" layoutY="75.0" prefHeight="374.0" prefWidth="791.0">
                     <columns>
                       <TableColumn fx:id="idTransakcjiColumn" prefWidth="105.0" text="ID Transakcji" />
-                      <TableColumn fx:id="idKlienciColumn" prefWidth="65.0" text="ID Klient" />
-                        <TableColumn fx:id="idEgzemplarzyColumn" prefWidth="113.0" text="ID Egzemplarz" />
+                      <TableColumn fx:id="idKlientaColumn1" prefWidth="65.0" text="ID Klient" />
+                        <TableColumn fx:id="idEgzemplarzaColumn1" prefWidth="113.0" text="ID Egzemplarz" />
                         <TableColumn fx:id="dataZakupuColumn" prefWidth="128.0" text="Data zakupu" />
                         <TableColumn fx:id="dlugoscGwarancjiColumn" prefWidth="129.0" text="Długość gwarancji" />
                         <TableColumn fx:id="cenaTransakcjiColumn" prefWidth="110.0" text="Cena" />
