@@ -10,7 +10,7 @@ public class Leasing implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    //@Column(name = "id")
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
