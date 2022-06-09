@@ -422,7 +422,7 @@ public class HeadSceneController implements Initializable {
 
         //------- EGZEMPLARZ INITIALIZE -------|------- EGZEMPLARZ INITIALIZE -------|
         idEgzemplarzColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("id"));
-        idModeluColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Model>("model_id"));
+        idModeluColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Model>("model"));
         rokProdukcjiColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("rok_produkcji"));
         przebiegColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("przebieg"));
         rodzajPaliwaColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, String>("rodzaj_paliwa"));
@@ -451,7 +451,6 @@ public class HeadSceneController implements Initializable {
         numerDomuColumn.setCellValueFactory(new PropertyValueFactory<Klient, Integer>("numer_domu"));
         firmaColumn.setCellValueFactory(new PropertyValueFactory<Klient, String>("email"));
         nipColumn.setCellValueFactory(new PropertyValueFactory<Klient, String>("telefon"));
-
 
         klientObservableList = FXCollections.observableArrayList(klientService.getKlientTable());
         klientTableView.setItems(klientObservableList);
