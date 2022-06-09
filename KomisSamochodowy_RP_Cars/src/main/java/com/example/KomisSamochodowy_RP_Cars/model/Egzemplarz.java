@@ -14,7 +14,7 @@ public class Egzemplarz implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    //@Column(name = "id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,13 +1,8 @@
 package com.example.KomisSamochodowy_RP_Cars.model;
 
-import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity(name = "Model_Tabelka")
 @Table(name="MODEL_TABELKA")
 public class Model implements Serializable{
@@ -25,10 +20,45 @@ public class Model implements Serializable{
     @Column(name = "typ_nadwozia")
     private String typ_nadwozia;
 
+    public Model() {
+    }
+
     public Model(String name, String nazwa_modelu,
                  String typ_nadwozia) {
         this.marka = name;
         this.nazwa_modelu = nazwa_modelu;
+        this.typ_nadwozia = typ_nadwozia;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMarka() {
+        return marka;
+    }
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
+
+    public String getNazwa_modelu() {
+        return nazwa_modelu;
+    }
+
+    public void setNazwa_modelu(String nazwa_modelu) {
+        this.nazwa_modelu = nazwa_modelu;
+    }
+
+    public String getTyp_nadwozia() {
+        return typ_nadwozia;
+    }
+
+    public void setTyp_nadwozia(String typ_nadwozia) {
         this.typ_nadwozia = typ_nadwozia;
     }
 }
