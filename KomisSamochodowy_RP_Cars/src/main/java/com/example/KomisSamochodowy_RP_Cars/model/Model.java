@@ -5,6 +5,22 @@ import java.io.Serializable;
 
 @Entity(name = "Model_Tabelka")
 @Table(name="MODEL_TABELKA")
+//@NamedStoredProcedureQuery(
+//        name = "MODEL_INS",
+//        procedureName = "MODEL_INS",
+//        parameters = {
+//                @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "P_ID_MODELU"),
+//                @StoredProcedureParameter(mode = ParameterMode.IN, type = Double.class, name = "P_CENA_HURTOWA"),
+//                @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "P_ILOSC_SZTUK")})
+@NamedStoredProcedureQuery(
+        name = "MODEL_DEL",
+        procedureName = "MODEL_DEL",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "P_ID_MODELU")
+        }
+)
+
+
 public class Model implements Serializable{
 
     @Id

@@ -2,11 +2,9 @@ package com.example.KomisSamochodowy_RP_Cars.controller;
 
 import com.example.KomisSamochodowy_RP_Cars.model.Egzemplarz;
 import com.example.KomisSamochodowy_RP_Cars.model.Klient;
-import com.example.KomisSamochodowy_RP_Cars.model.Model;
 import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import com.example.KomisSamochodowy_RP_Cars.service.EgzemplarzService;
 import com.example.KomisSamochodowy_RP_Cars.service.KlientService;
-import com.example.KomisSamochodowy_RP_Cars.service.ModelService;
 import com.example.KomisSamochodowy_RP_Cars.service.Transakcja_kupnaService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,9 +40,6 @@ public class AddTransakcjaForm {
         Label label4 = new Label("Długość gwarancji, np.: \"24\"");
         RestrictiveTextField textField4 = new RestrictiveTextField("size2");
         textField4.setMaxLength(2);
-        Label label5 = new Label("Cena, np.: \"9000\"");
-        RestrictiveTextField textField5 = new RestrictiveTextField("size5");
-        textField5.setMaxLength(5);
 
         Button submitButton = new Button("Dodaj");
 
@@ -58,7 +53,6 @@ public class AddTransakcjaForm {
                     int id_egzemplarz = -1;
                     String data_zakupuStr = null;
                     int dlugosc_gwarancji = 0;
-                    int cena = 0;
 
                     Transakcja_kupnaService transakcja_kupnaService = new Transakcja_kupnaService();
 
@@ -68,7 +62,6 @@ public class AddTransakcjaForm {
                         data_zakupuStr = textField3.getText();
                         LocalDate data_zakupu = LocalDate.parse(data_zakupuStr);
                         dlugosc_gwarancji = Integer.parseInt(textField4.getText());
-                        cena = Integer.parseInt(textField5.getText());
 
                         KlientService klientService = new KlientService();
                         Klient klient = klientService.getKlientById(id_klient);
@@ -90,7 +83,7 @@ public class AddTransakcjaForm {
         buttonInAlert.setOnAction(e -> window.close());
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label1, textField1, label2, textField2, label3, textField3, label4, textField4, label5, textField5, submitButton, buttonInAlert);
+        layout.getChildren().addAll(label1, textField1, label2, textField2, label3, textField3, label4, textField4, submitButton, buttonInAlert);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);

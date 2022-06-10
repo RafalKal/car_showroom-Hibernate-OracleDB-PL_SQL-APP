@@ -1,6 +1,10 @@
 package com.example.KomisSamochodowy_RP_Cars.controller;
 
+import com.example.KomisSamochodowy_RP_Cars.model.Egzemplarz;
+import com.example.KomisSamochodowy_RP_Cars.model.Klient;
 import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
+import com.example.KomisSamochodowy_RP_Cars.service.EgzemplarzService;
+import com.example.KomisSamochodowy_RP_Cars.service.KlientService;
 import com.example.KomisSamochodowy_RP_Cars.service.Transakcja_kupnaService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,9 +39,6 @@ public class UpdateTransakcjaForm {
         Label label4 = new Label("Długość gwarancji, np.: \"24\"");
         RestrictiveTextField textField4 = new RestrictiveTextField("size2");
         textField4.setMaxLength(2);
-        Label label5 = new Label("Cena, np.: \"9000\"");
-        RestrictiveTextField textField5 = new RestrictiveTextField("size5");
-        textField5.setMaxLength(5);
 
         Button submitButton = new Button("Zmień");
 
@@ -45,30 +46,32 @@ public class UpdateTransakcjaForm {
             @Override
             public void handle(ActionEvent e) {
 
-                Long id_klient = null;
-                Long id_egzemplarz = null;
-                LocalDate data_zakupu = null;
+                int id_klient = -1;
+                int id_egzemplarz = -1;
+                String data_zakupuStr = null;
                 int dlugosc_gwarancji = 0;
-                int cena = 0;
 
                 Transakcja_kupnaService transakcja_kupnaService = new Transakcja_kupnaService();
 
                 try {
-                    id_klient = Long.parseLong(textField1.getText());
-                    id_egzemplarz = Long.parseLong(textField2.getText());
-                    data_zakupu = LocalDate.parse(textField3.getText());
+                    id_klient = Integer.parseInt(textField1.getText());
+                    id_egzemplarz = Integer.parseInt(textField2.getText());
+                    data_zakupuStr = textField3.getText();
+                    LocalDate data_zakupu = LocalDate.parse(data_zakupuStr);
                     dlugosc_gwarancji = Integer.parseInt(textField4.getText());
-                    cena = Integer.parseInt(textField5.getText());
 
-                    //transakcja_kupna.setKlient_id(id_klient);
-                    //transakcja_kupna.setEgzemplarz_id(id_egzemplarz);
+                    KlientService klientService = new KlientService();
+                    EgzemplarzService egzemplarzService = new EgzemplarzService();
+
+                    transakcja_kupna.setKlient(klientService.getKlientById(id_klient));
+                    transakcja_kupna.setEgzemplarz(egzemplarzService.getEgzemplarzById(id_egzemplarz));
                     transakcja_kupna.setData_zakupu(data_zakupu);
                     transakcja_kupna.setDlugosc_gwarancji(dlugosc_gwarancji);
-                    //transakcja_kupna.setCena(cena);
 
                     transakcja_kupnaService.updateTransakcja_kupna(transakcja_kupna);
 
                     window.close();
+
                 }catch (DataException | DateTimeParseException | NumberFormatException exception){
                     BadInput.wyswietl("Błąd danych wejściowych", "Zmień dane na wzór podanych...");
                 }
@@ -83,7 +86,6 @@ public class UpdateTransakcjaForm {
                 label2, textField2,
                 label3, textField3,
                 label4, textField4,
-                label5, textField5,
                 submitButton, buttonInAlert);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);

@@ -47,8 +47,6 @@ public class ModelService {
     public List<Model> getModelTable() {
         session.beginTransaction();
 
-        Set<EntityType<?>> entities = session.getMetamodel().getEntities();
-
         Query query = session.createQuery("from Model_Tabelka");
 
         session.getTransaction().commit();
@@ -62,4 +60,9 @@ public class ModelService {
         session.getTransaction().commit();
         return model;
     }
+//    public void removeModelByPROCEDURE(Model model) {
+//        session.beginTransaction();
+//        session.remove(model);
+//        session.getTransaction().commit();
+//    }
 }

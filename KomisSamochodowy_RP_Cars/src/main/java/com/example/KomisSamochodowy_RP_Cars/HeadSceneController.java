@@ -25,6 +25,8 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -122,7 +124,18 @@ public class HeadSceneController implements Initializable {
     @FXML
     void removeModelFromDataBase(ActionEvent event){
         Model model = modelTableView.getSelectionModel().getSelectedItem();
-        modelService.removeModel(model);
+        int model_id = model.getId();
+        //modelService.removeModel(model);
+
+        session.beginTransaction();
+
+        Query query = session.createSQLQuery("CALL MODEL_DEL(:id)")
+                .addEntity(Model.class)
+                .setParameter("id", model_id);
+        query.executeUpdate();
+        session.getTransaction().commit();
+
+
         modelObservableList = FXCollections.observableArrayList(modelService.getModelTable());
         modelTableView.setItems(modelObservableList);
         modelTableView.refresh();
@@ -257,6 +270,8 @@ public class HeadSceneController implements Initializable {
         AddKlientForm.displayAddKlientForm();
         klientObservableList = FXCollections.observableArrayList(klientService.getKlientTable());
         klientTableView.setItems(klientObservableList);
+        klientTableView.refresh();
+
     }
 
     @FXML
@@ -265,6 +280,8 @@ public class HeadSceneController implements Initializable {
         klientService.removeKlient(klient);
         klientObservableList = FXCollections.observableArrayList(klientService.getKlientTable());
         klientTableView.setItems(klientObservableList);
+        klientTableView.refresh();
+
     }
 
     @FXML
@@ -273,6 +290,7 @@ public class HeadSceneController implements Initializable {
         UpdateKlientForm.displayUpdateKlientForm(klient);
         klientObservableList = FXCollections.observableArrayList(klientService.getKlientTable());
         klientTableView.setItems(klientObservableList);
+        klientTableView.refresh();
     }
 
     public KlientService klientService = new KlientService();
@@ -283,15 +301,15 @@ public class HeadSceneController implements Initializable {
     |------- LEASINGI TAB -------|------- LEASINGI TAB -------|------- LEASINGI TAB -------|
     */
     @FXML
-    private TableView<Leasing> leasingTableView;
-    @FXML
     private Tab leasingiTab;
+    @FXML
+    private TableView<Leasing> leasingTableView;
     @FXML
     private TableColumn<Leasing, Integer> idLeasinguColumn;
     @FXML
-    private TableColumn<Leasing, Klient> idKlientaColumn;
+    private TableColumn<Leasing, Integer> idKlientaColumn;
     @FXML
-    private TableColumn<Leasing, Egzemplarz> idEgzemplarzaColumn;
+    private TableColumn<Leasing, Integer> idEgzemplarzaColumn;
     @FXML
     private TableColumn<Leasing, LocalDate> dataPoczatekColumn;
     @FXML
@@ -311,14 +329,33 @@ public class HeadSceneController implements Initializable {
         AddLeasingForm.displayAddLeasingForm();
         leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
         leasingTableView.setItems(leasingObservableList);
+        leasingTableView.refresh();
+
     }
 
     @FXML
     void removeLeasingFromDataBase(ActionEvent event){
+//        Leasing leasing = leasingTableView.getSelectionModel().getSelectedItem();
+//        leasingService.removeLeasing(leasing);
+//        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
+//        leasingTableView.setItems(leasingObservableList);
+//        leasingTableView.refresh();
+
         Leasing leasing = leasingTableView.getSelectionModel().getSelectedItem();
-        leasingService.removeLeasing(leasing);
-        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
-        leasingTableView.setItems(leasingObservableList);
+        int leasing_id = leasing.getId();
+        //modelService.removeModel(model);
+
+        session.beginTransaction();
+
+        Query query = session.createSQLQuery("CALL LEASING_DEL(:id)")
+                .addEntity(Leasing.class)
+                .setParameter("id", leasing_id);
+        query.executeUpdate();
+        session.getTransaction().commit();
+
+        modelObservableList = FXCollections.observableArrayList(modelService.getModelTable());
+        modelTableView.setItems(modelObservableList);
+        modelTableView.refresh();
     }
 
     @FXML
@@ -327,6 +364,8 @@ public class HeadSceneController implements Initializable {
         UpdateLeasingForm.displayUpdateLeasingForm(leasing);
         leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
         leasingTableView.setItems(leasingObservableList);
+        leasingTableView.refresh();
+
     }
 
     public LeasingService leasingService = new LeasingService();
@@ -343,26 +382,28 @@ public class HeadSceneController implements Initializable {
     @FXML
     private TableColumn<Transakcja_kupna, Integer> idTransakcjiColumn;
     @FXML
-    private TableColumn<Transakcja_kupna, Klient> idKlientaColumn1;
+    private TableColumn<Transakcja_kupna, Integer> idKlientaColumn1;
     @FXML
-    private TableColumn<Transakcja_kupna, Egzemplarz> idEgzemplarzaColumn1;
+    private TableColumn<Transakcja_kupna, Integer> idEgzemplarzaColumn1;
     @FXML
     private TableColumn<Transakcja_kupna, LocalDate> dataZakupuColumn;
     @FXML
     private TableColumn<Transakcja_kupna, Integer> dlugoscGwarancjiColumn;
 
     @FXML
-    Button addTransakcja_kupnaButton;
+    Button addTransakcja_KupnaButton;
     @FXML
-    Button removeTransakcja_kupnaButton;
+    Button removeTransakcja_KupnaButton;
     @FXML
-    Button updateTransakcja_kupnaButton;
+    Button updateTransakcja_KupnaButton;
 
     @FXML
     void addTransakcjaToDataBase(ActionEvent event){
         AddTransakcjaForm.displayAddTransakcjaForm();
         transakcja_kupnaObservableList = FXCollections.observableArrayList(transakcja_kupnaService.getTransakcja_kupnaTable());
         transakcjeTableView.setItems(transakcja_kupnaObservableList);
+        transakcjeTableView.refresh();
+
     }
 
     @FXML
@@ -371,6 +412,8 @@ public class HeadSceneController implements Initializable {
         transakcja_kupnaService.removeTransakcja_kupna(transakcja_kupna);
         transakcja_kupnaObservableList = FXCollections.observableArrayList(transakcja_kupnaService.getTransakcja_kupnaTable());
         transakcjeTableView.setItems(transakcja_kupnaObservableList);
+        transakcjeTableView.refresh();
+
     }
 
     @FXML
@@ -379,6 +422,7 @@ public class HeadSceneController implements Initializable {
         UpdateTransakcjaForm.displayUpdateTransakcjaForm(transakcja_kupna);
         transakcja_kupnaObservableList = FXCollections.observableArrayList(transakcja_kupnaService.getTransakcja_kupnaTable());
         transakcjeTableView.setItems(transakcja_kupnaObservableList);
+        transakcjeTableView.refresh();
     }
 
     public Transakcja_kupnaService transakcja_kupnaService = new Transakcja_kupnaService();
@@ -405,7 +449,6 @@ public class HeadSceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
     /*
    |------- DATA INITIALIZE COLUMN -------|------- DATA INITIALIZE COLUMN -------|------- DATA INITIALIZE COLUMN -------|
    */
@@ -425,14 +468,6 @@ public class HeadSceneController implements Initializable {
 
         //------- EGZEMPLARZ INITIALIZE -------|------- EGZEMPLARZ INITIALIZE -------|
         idEgzemplarzColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Integer>("id"));
-//        idModeluColumn.setCellValueFactory(new PropertyValueFactory<Egzemplarz, Model>("model"));
-//        idModeluColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Egzemplarz, String>, ObservableValue<String>>() {
-//            @Override
-//            public ObservableValue<String> call(TableColumn.CellDataFeatures<Egzemplarz, String> param) {
-//                return new SimpleStringProperty(param.getValue().getModel().getNazwa_modelu());
-//            }
-//        });
-
         idModeluColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Egzemplarz,Integer>,ObservableValue<Integer>>(){
             @Override
             public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Egzemplarz, Integer> param) {
@@ -475,8 +510,18 @@ public class HeadSceneController implements Initializable {
 
         //--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|
         idLeasinguColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Integer>("id"));
-        idKlientaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Klient>("klient"));
-        idEgzemplarzaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Egzemplarz>("egzemplarz"));
+        idKlientaColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Leasing,Integer>,ObservableValue<Integer>>(){
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Leasing, Integer> param) {
+                return new SimpleIntegerProperty(param.getValue().getKlient().getId()).asObject();
+            }
+        });
+        idEgzemplarzaColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Leasing,Integer>,ObservableValue<Integer>>(){
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Leasing, Integer> param) {
+                return new SimpleIntegerProperty(param.getValue().getEgzemplarz().getId()).asObject();
+            }
+        });
         dataPoczatekColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_poczatek"));
         dataKoncowaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_koniec"));
         oplataMiesiecznaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Double>("oplata_miesieczna"));
@@ -487,12 +532,22 @@ public class HeadSceneController implements Initializable {
 
         //---- TRANSAKCJE KUPNA INITIALIZE ----|---- TRANSAKCJE KUPNA INITIALIZE ----|
         idTransakcjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("id"));
-        idKlientaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Klient>("klient"));
-        idEgzemplarzaColumn1.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Egzemplarz>("egzemplarz"));
+        idKlientaColumn1.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Transakcja_kupna,Integer>,ObservableValue<Integer>>(){
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Transakcja_kupna, Integer> param) {
+                return new SimpleIntegerProperty(param.getValue().getKlient().getId()).asObject();
+            }
+        });
+        idEgzemplarzaColumn1.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Transakcja_kupna,Integer>,ObservableValue<Integer>>(){
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Transakcja_kupna, Integer> param) {
+                return new SimpleIntegerProperty(param.getValue().getEgzemplarz().getId()).asObject();
+            }
+        });
         dataZakupuColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, LocalDate>("data_zakupu"));
         dlugoscGwarancjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("dlugosc_gwarancji"));
 
-        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
-        leasingTableView.setItems(leasingObservableList);
+        transakcja_kupnaObservableList = FXCollections.observableArrayList(transakcja_kupnaService.getTransakcja_kupnaTable());
+        transakcjeTableView.setItems(transakcja_kupnaObservableList);
     }
 }
