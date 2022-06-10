@@ -37,12 +37,6 @@ public class ModelService {
 //
 //        session.flush() ;
 //    }
-    public Model getModelById(int id) {
-        session.beginTransaction();
-        Model model = (Model) session.get(Model.class, id);
-        session.getTransaction().commit();
-        return model;
-    }
 
     public void updateModel(Model model) {
         session.beginTransaction();
@@ -60,5 +54,12 @@ public class ModelService {
         session.getTransaction().commit();
 
         return query.list();
+    }
+
+    public Model getModelById(int id) {
+        session.beginTransaction();
+        Model model = (Model) session.get(Model.class, id);
+        session.getTransaction().commit();
+        return model;
     }
 }

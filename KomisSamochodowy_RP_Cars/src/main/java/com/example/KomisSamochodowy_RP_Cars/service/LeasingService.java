@@ -2,7 +2,6 @@ package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
 import com.example.KomisSamochodowy_RP_Cars.model.Leasing;
-import com.example.KomisSamochodowy_RP_Cars.model.Model;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

@@ -10,7 +10,7 @@ public class Egzemplarz implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = "id")
-    private Long id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "model_id")
@@ -64,11 +64,11 @@ public class Egzemplarz implements Serializable{
     public Egzemplarz() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

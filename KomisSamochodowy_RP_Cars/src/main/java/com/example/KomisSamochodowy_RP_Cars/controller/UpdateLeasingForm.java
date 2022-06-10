@@ -13,6 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.hibernate.exception.DataException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class UpdateLeasingForm {
@@ -45,39 +46,33 @@ public class UpdateLeasingForm {
         submitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
 
-                Long klient_id = null;
-                Long egzemplarz_id = null;
-                LocalDate data_poczatek = null;
-                LocalDate data_koniec = null;
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+                int klient_id = -1;
+                int egzemplarz_id = -1;
+                String data_poczatekStr = null;
+                String data_koniecStr = null;
                 double oplata_miesieczna = 0;
 
                 LeasingService leasingService = new LeasingService();
 
                 try {
-
-                    klient_id = Long.parseLong(textField1.getText());
-                    egzemplarz_id = Long.parseLong(textField2.getText());
-                    data_poczatek = LocalDate.parse(textField3.getText());
-                    data_koniec = LocalDate.parse(textField4.getText());
+                    klient_id = Integer.parseInt(textField1.getText());
+                    egzemplarz_id = Integer.parseInt(textField2.getText());
+                    data_poczatekStr = textField3.getText();
+                    LocalDate data_poczatek = LocalDate.parse(data_poczatekStr);
+                    data_koniecStr = textField4.getText();
+                    LocalDate data_koniec = LocalDate.parse(data_koniecStr);
                     oplata_miesieczna = Double.parseDouble(textField5.getText());
 
-//                    leasing.setKlient_id(klient_id);
-//                    leasing.setEgzemplarz_id(egzemplarz_id);
+
                     leasing.setOplata_miesieczna(oplata_miesieczna);
-                    leasing.setData_początek(data_poczatek);
+                    leasing.setData_poczatek(data_poczatek);
                     leasing.setData_koniec(data_koniec);
 
-                    if(     Validator.validateDate(textField3.getText())
-                            & Validator.validateDate(textField4.getText()))
-                    {
-                        leasingService.updateLeasing(leasing);
-                        window.close();
-                    }
-                    else BadInput.wyswietl("Błąd danych wejściowych (RegEx", "Zmień dane na wzór podanych...");
 
                 }catch (DataException | DateTimeParseException | NumberFormatException exception){
                     BadInput.wyswietl("Błąd danych wejściowych (Exception)", "Zmień dane na wzór podanych...");
-
                 }
             }
         });

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity(name = "Leasing_Tabelka")
+@Entity(name="Leasing_Tabelka")
 @Table(name="LEASING_TABELKA")
 public class Leasing implements Serializable{
 
@@ -22,7 +22,7 @@ public class Leasing implements Serializable{
     private Klient klient;
 
     @Column(name="data_początek")
-    private LocalDate data_początek;
+    private LocalDate data_poczatek;
 
     @Column(name="data_koniec")
     private LocalDate data_koniec;
@@ -31,11 +31,11 @@ public class Leasing implements Serializable{
     private double oplata_miesieczna;
 
     public Leasing(Egzemplarz egzemplarz, Klient klient,
-                   LocalDate data_początek, LocalDate data_koniec,
+                   LocalDate data_poczatek, LocalDate data_koniec,
                    double oplata_miesieczna) {
         this.egzemplarz = egzemplarz;
         this.klient = klient;
-        this.data_początek = data_początek;
+        this.data_poczatek = data_poczatek;
         this.data_koniec = data_koniec;
         this.oplata_miesieczna = oplata_miesieczna;
     }
@@ -67,12 +67,12 @@ public class Leasing implements Serializable{
         this.klient = klient;
     }
 
-    public LocalDate getData_początek() {
-        return data_początek;
+    public LocalDate getData_poczatek() {
+        return data_poczatek;
     }
 
-    public void setData_początek(LocalDate data_początek) {
-        this.data_początek = data_początek;
+    public void setData_poczatek(LocalDate data_poczatek) {
+        this.data_poczatek = data_poczatek;
     }
 
     public LocalDate getData_koniec() {

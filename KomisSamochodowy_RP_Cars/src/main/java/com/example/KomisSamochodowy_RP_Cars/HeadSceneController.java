@@ -477,7 +477,7 @@ public class HeadSceneController implements Initializable {
         idLeasinguColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Integer>("id"));
         idKlientaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Klient>("klient"));
         idEgzemplarzaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Egzemplarz>("egzemplarz"));
-        dataPoczatekColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_początek"));
+        dataPoczatekColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_poczatek"));
         dataKoncowaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, LocalDate>("data_koniec"));
         oplataMiesiecznaColumn.setCellValueFactory(new PropertyValueFactory<Leasing, Double>("oplata_miesieczna"));
 
