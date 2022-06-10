@@ -14,12 +14,12 @@ public class Transakcja_kupna implements Serializable{
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "egzemplarz_id")
-    private Egzemplarz egzemplarz;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "klient_id")
     private Klient klient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "egzemplarz_id")
+    private Egzemplarz egzemplarz;
 
     @Column(name="data_zakupu")
     private LocalDate data_zakupu;

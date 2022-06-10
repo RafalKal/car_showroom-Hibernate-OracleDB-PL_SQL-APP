@@ -29,10 +29,10 @@ public class AddLeasingForm {
         window.setTitle("Wypelnij dane w celu dodania leasingu: ");
         window.setMinWidth(500);
 
-        Label label1 = new Label("ID egzemplarza, np.: \"5\"");
+        Label label1 = new Label("ID klienta, np.: \"5\"");
         RestrictiveTextField textField1 = new RestrictiveTextField("[id]");
         textField1.setMaxLength(3);
-        Label label2 = new Label("ID klienta, np.: \"5\"");
+        Label label2 = new Label("ID egzemplarza, np.: \"5\"");
         RestrictiveTextField textField2 = new RestrictiveTextField("[id]");
         textField2.setMaxLength(3);
         Label label3 = new Label("Data początek, np.: \"2000-10-10\"");
@@ -52,8 +52,8 @@ public class AddLeasingForm {
 
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
-                    int egzemplarz_id = -1;
                     int klient_id = -1;
+                    int egzemplarz_id = -1;
                     String data_poczatekStr = null;
                     String data_koniecStr = null;
                     double oplata_miesieczna = 0;
@@ -71,9 +71,10 @@ public class AddLeasingForm {
                          LocalDate data_koniec = LocalDate.parse(data_koniecStr);
                          oplata_miesieczna = Double.parseDouble(textField5.getText());
 
-                         leasingService.saveLeasing(new Leasing(egzemplarzService.getEgzemplarzById(egzemplarz_id),
-                                                                klientService.getKlientById(klient_id),
-                                                                data_poczatek, data_koniec, oplata_miesieczna));
+                         leasingService.saveLeasing(new Leasing(klientService.getKlientById(klient_id),
+                                                                egzemplarzService.getEgzemplarzById(egzemplarz_id),
+                                                                data_poczatek, data_koniec, oplata_miesieczna
+                                                                ));
 
                     }catch (DataException | DateTimeParseException | NumberFormatException exception){
                         BadInput.wyswietl("Błąd danych wejściowych (Exception)", "Zmień dane na wzór podanych...");

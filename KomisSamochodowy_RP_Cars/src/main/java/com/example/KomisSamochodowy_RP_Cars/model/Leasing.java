@@ -14,12 +14,12 @@ public class Leasing implements Serializable{
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "egzemplarz_id")
-    private Egzemplarz egzemplarz;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "klient_id")
     private Klient klient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "egzemplarz_id")
+    private Egzemplarz egzemplarz;
 
     @Column(name="data_początek")
     private LocalDate data_poczatek;
@@ -30,11 +30,11 @@ public class Leasing implements Serializable{
     @Column(name="oplata_miesieczna")
     private double oplata_miesieczna;
 
-    public Leasing(Egzemplarz egzemplarz, Klient klient,
+    public Leasing(Klient klient, Egzemplarz egzemplarz,
                    LocalDate data_poczatek, LocalDate data_koniec,
                    double oplata_miesieczna) {
-        this.egzemplarz = egzemplarz;
         this.klient = klient;
+        this.egzemplarz = egzemplarz;
         this.data_poczatek = data_poczatek;
         this.data_koniec = data_koniec;
         this.oplata_miesieczna = oplata_miesieczna;
