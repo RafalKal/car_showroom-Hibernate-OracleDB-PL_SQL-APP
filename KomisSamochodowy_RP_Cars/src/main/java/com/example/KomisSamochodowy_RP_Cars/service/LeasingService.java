@@ -19,10 +19,16 @@ public class LeasingService {
 //        session.getTransaction().commit();
 
         session.beginTransaction();
-        Query query = session.createSQLQuery("CALL LEASING_DEL(:id)")
-                .addEntity(Leasing.class)
-                .setParameter("id", leasing.getId());
-        query.executeUpdate();
+//        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_UPD(:DATA_ZAKUPU\n" +
+//                                                                    ",DLUGOSC_GWARANCJI\n" +
+//                                                                    ",EGZEMPLARZ_ID\n" +
+//                                                                    ",KLIENT_ID\n")
+//                .addEntity(Leasing.class)
+//                .setParameter("DATA_ZAKUPU", egzemplarz.get)
+//                .setParameter("DLUGOSC_GWARANCJI", egzemplarz.get)
+//                .setParameter("EGZEMPLARZ_ID", egzemplarz.get)
+//                .setParameter("KLIENT_ID", data_poczatek);
+//        query.executeUpdate();
         session.getTransaction().commit();
     }
 

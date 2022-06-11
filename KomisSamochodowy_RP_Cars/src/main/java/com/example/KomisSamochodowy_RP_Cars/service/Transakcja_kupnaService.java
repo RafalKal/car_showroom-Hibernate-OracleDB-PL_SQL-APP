@@ -16,6 +16,18 @@ public class Transakcja_kupnaService {
     public void saveTransakcja_kupna(Transakcja_kupna transakcja_kupna){
         session.beginTransaction();
         session.save(transakcja_kupna);
+//        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_UPD(:ID\n" +
+//                                ",KLIENT_ID\n" +
+//                                ",EGZEMPLARZ_ID\n" +
+//                                ",DATA_ZAKUPU\n" +
+//                                ",DLUGOSC_GWARANCJI\n")
+//                .addEntity(Transakcja_kupna.class)
+//                .setParameter("ID", transakcja_kupna.getId())
+//                .setParameter("DATA_ZAKUPU", transakcja_kupna.getData_zakupu())
+//                .setParameter("DLUGOSC_GWARANCJI", transakcja_kupna.getDlugosc_gwarancji())
+//                .setParameter("EGZEMPLARZ_ID", transakcja_kupna.getEgzemplarz().getId())
+//                .setParameter("KLIENT_ID", transakcja_kupna.getKlient().getId());
+//        query.executeUpdate();
         session.getTransaction().commit();
     }
 
@@ -30,7 +42,19 @@ public class Transakcja_kupnaService {
 
     public void updateTransakcja_kupna(Transakcja_kupna transakcja_kupna) {
         session.beginTransaction();
-        session.update(transakcja_kupna);
+        //session.update(transakcja_kupna);
+        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_UPD(:ID" +
+                        ",:KLIENT_ID" +
+                        ",:EGZEMPLARZ_ID" +
+                        ",:DATA_ZAKUPU" +
+                        ",:DLUGOSC_GWARANCJI)")
+                .addEntity(Transakcja_kupna.class)
+                .setParameter("ID", transakcja_kupna.getId())
+                .setParameter("KLIENT_ID", transakcja_kupna.getKlient().getId())
+                .setParameter("EGZEMPLARZ_ID", transakcja_kupna.getEgzemplarz().getId())
+                .setParameter("DATA_ZAKUPU", transakcja_kupna.getData_zakupu())
+                .setParameter("DLUGOSC_GWARANCJI", transakcja_kupna.getDlugosc_gwarancji());
+                query.executeUpdate();
         session.getTransaction().commit();
     }
 
