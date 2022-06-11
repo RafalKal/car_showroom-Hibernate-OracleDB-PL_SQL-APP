@@ -353,9 +353,9 @@ public class HeadSceneController implements Initializable {
         query.executeUpdate();
         session.getTransaction().commit();
 
-        modelObservableList = FXCollections.observableArrayList(modelService.getModelTable());
-        modelTableView.setItems(modelObservableList);
-        modelTableView.refresh();
+        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
+        leasingTableView.setItems(leasingObservableList);
+        leasingTableView.refresh();
     }
 
     @FXML

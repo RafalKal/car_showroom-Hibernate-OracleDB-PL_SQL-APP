@@ -16,6 +16,7 @@ import org.hibernate.exception.DataException;
 import java.time.format.DateTimeParseException;
 
 public class UpdateEgzemplarzForm {
+
     public static void displayUpdateEgzemplarzForm(Egzemplarz egzemplarz){
 
         Stage window = new Stage();

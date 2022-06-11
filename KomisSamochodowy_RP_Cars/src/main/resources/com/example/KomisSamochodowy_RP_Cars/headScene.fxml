@@ -14,7 +14,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <TabPane fx:id="myTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.KomisSamochodowy_RP_Cars.HeadSceneController">
-  <tabs>
+
+    <tabs>
+
       <Tab fx:id="todoTab" text="TODO">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -39,7 +41,8 @@
             </AnchorPane>
          </content>
       </Tab>
-    <Tab fx:id="modeleTab" text="Modele">
+
+      <Tab fx:id="modeleTab" text="Modele">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -59,6 +62,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
+
       <Tab fx:id="egzemplarzeTab" text="Egzemplarze">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -85,6 +89,7 @@
             </AnchorPane>
          </content>
       </Tab>
+
     <Tab fx:id="klienciTab" text="Klienci">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="429.0" prefWidth="679.0">
@@ -114,6 +119,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
+
       <Tab fx:id="transakcjaKupnaTab" text="Transakcje Kupna">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -135,6 +141,7 @@
                </children></AnchorPane>
          </content>
       </Tab>
+
       <Tab fx:id="leasingiTab" text="Leasingi / Wypożyczenia">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -156,5 +163,6 @@
                </children></AnchorPane>
          </content>
       </Tab>
+
   </tabs>
 </TabPane>
