@@ -22,7 +22,10 @@ public class ModelService {
 
     public void removeModel(Model model) {
         session.beginTransaction();
-        session.remove(model);
+        Query query = session.createSQLQuery("CALL MODEL_DEL(:id)")
+                .addEntity(Model.class)
+                .setParameter("id", model.getId());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 

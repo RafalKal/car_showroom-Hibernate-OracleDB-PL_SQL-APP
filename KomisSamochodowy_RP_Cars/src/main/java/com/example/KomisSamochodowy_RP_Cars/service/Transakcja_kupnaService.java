@@ -1,6 +1,7 @@
 package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
+import com.example.KomisSamochodowy_RP_Cars.model.Leasing;
 import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +21,10 @@ public class Transakcja_kupnaService {
 
     public void removeTransakcja_kupna(Transakcja_kupna transakcja_kupna){
         session.beginTransaction();
-        session.remove(transakcja_kupna);
+        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_DEL(:id)")
+                .addEntity(Transakcja_kupna.class)
+                .setParameter("id", transakcja_kupna.getId());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 

@@ -26,7 +26,6 @@ import javafx.util.Duration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -335,23 +334,25 @@ public class HeadSceneController implements Initializable {
 
     @FXML
     void removeLeasingFromDataBase(ActionEvent event){
-//        Leasing leasing = leasingTableView.getSelectionModel().getSelectedItem();
-//        leasingService.removeLeasing(leasing);
-//        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
-//        leasingTableView.setItems(leasingObservableList);
-//        leasingTableView.refresh();
-
         Leasing leasing = leasingTableView.getSelectionModel().getSelectedItem();
-        int leasing_id = leasing.getId();
-        //modelService.removeModel(model);
+        leasingService.removeLeasing(leasing);
+        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
+        leasingTableView.setItems(leasingObservableList);
+        leasingTableView.refresh();
 
-        session.beginTransaction();
+//        Leasing leasing = leasingTableView.getSelectionModel().getSelectedItem();
+//        int leasing_id = leasing.getId();
+//        //modelService.removeModel(model);
+//
+//        session.beginTransaction();
+//
+//        Query query = session.createSQLQuery("CALL LEASING_DEL(:id)")
+//                .addEntity(Leasing.class)
+//                .setParameter("id", leasing_id);
+//        query.executeUpdate();
+//        session.getTransaction().commit();
 
-        Query query = session.createSQLQuery("CALL LEASING_DEL(:id)")
-                .addEntity(Leasing.class)
-                .setParameter("id", leasing_id);
-        query.executeUpdate();
-        session.getTransaction().commit();
+
 
         leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
         leasingTableView.setItems(leasingObservableList);

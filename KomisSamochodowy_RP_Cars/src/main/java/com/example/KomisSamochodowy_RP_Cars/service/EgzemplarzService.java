@@ -21,7 +21,10 @@ public class EgzemplarzService {
 
     public void removeEgzemplarz(Egzemplarz egzemplarz){
         session.beginTransaction();
-        session.remove(egzemplarz);
+        Query query = session.createSQLQuery("CALL EGZEMPLARZ_DEL(:id)")
+                .addEntity(Egzemplarz.class)
+                .setParameter("id", egzemplarz.getId());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 

@@ -20,7 +20,10 @@ public class KlientService {
 
     public void removeKlient(Klient klient){
         session.beginTransaction();
-        session.remove(klient);
+        Query query = session.createSQLQuery("CALL KLIENT_DEL(:id)")
+                .addEntity(Klient.class)
+                .setParameter("id", klient.getId());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 
