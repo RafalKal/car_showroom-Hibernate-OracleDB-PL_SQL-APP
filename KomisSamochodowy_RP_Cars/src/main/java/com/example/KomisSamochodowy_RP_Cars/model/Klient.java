@@ -45,7 +45,7 @@ public class Klient implements Serializable {
     private String ulica;
 
     @Column(name="numer_domu")
-    private int numer_domu;
+    private Integer numer_domu;
 
     @Column(name="firma")
     private String firma;
@@ -183,11 +183,11 @@ public class Klient implements Serializable {
         this.ulica = ulica;
     }
 
-    public int getNumer_domu() {
+    public Integer getNumer_domu() {
         return numer_domu;
     }
 
-    public void setNumer_domu(int numer_domu) {
+    public void setNumer_domu(Integer numer_domu) {
         this.numer_domu = numer_domu;
     }
 

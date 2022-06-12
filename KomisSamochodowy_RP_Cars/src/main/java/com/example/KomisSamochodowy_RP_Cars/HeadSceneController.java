@@ -31,6 +31,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HeadSceneController implements Initializable {
@@ -267,7 +268,8 @@ public class HeadSceneController implements Initializable {
     @FXML
     void addKlientToDataBase(ActionEvent event){
         AddKlientForm.displayAddKlientForm();
-        klientObservableList = FXCollections.observableArrayList(klientService.getKlientTable());
+        List<Klient> klientTable = klientService.getKlientTable();
+        klientObservableList = FXCollections.observableArrayList(klientTable);
         klientTableView.setItems(klientObservableList);
         klientTableView.refresh();
 

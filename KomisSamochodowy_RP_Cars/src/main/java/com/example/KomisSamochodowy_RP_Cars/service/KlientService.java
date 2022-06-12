@@ -17,20 +17,23 @@ public class KlientService {
     public void saveKlient(Klient klient){
         session.beginTransaction();
         Date data = Date.valueOf(klient.getData_urodzenia());
-        Query query = session.createNativeQuery("CALL KLIENT_INS(NULL" +
-                                                                    ",:DATA_URODZENIA" +
-                                                                    ",:EMAIL" +
-                                                                    ",:FIRMA)" +
-                                                                    ",:IMIE" +
-                                                                    ",:KOD_POCZTOWY" +
-                                                                    ",:MIEJSCOWOSC" +
-                                                                    ",:NAZWISKO" +
-                                                                    ",:NIP" +
-                                                                    ",:NUMER_DOMU" +
-                                                                    ",:NUMER_DOWODU" +
-                                                                    ",:TELEFON" +
-                                                                    ",:PESEL" +
-                                                                    ",:ULICA)")
+        Query query = session.createNativeQuery(   """
+                         CALL KLIENT_INS(
+                         :ULICA
+                        ,:IMIE
+                        ,:PESEL
+                        ,:TELEFON
+                        ,:EMAIL 
+                        ,:NAZWISKO 
+                        ,:KOD_POCZTOWY 
+                        ,:NIP 
+                        ,:NUMER_DOWODU
+                        ,:NUMER_DOMU 
+                        ,:MIEJSCOWOSC 
+                        ,:DATA_URODZENIA
+                        ,NULL 
+                        ,:FIRMA)       
+                """)
                 .addEntity(Klient.class)
                 .setParameter("DATA_URODZENIA", data)
                 .setParameter("EMAIL", klient.getEmail())
