@@ -42,7 +42,6 @@ public class Transakcja_kupnaService {
 
     public void updateTransakcja_kupna(Transakcja_kupna transakcja_kupna) {
         session.beginTransaction();
-        //session.update(transakcja_kupna);
         Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_UPD(:ID" +
                         ",:KLIENT_ID" +
                         ",:EGZEMPLARZ_ID" +

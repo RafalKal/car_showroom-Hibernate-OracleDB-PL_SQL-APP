@@ -2,6 +2,7 @@ package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
 import com.example.KomisSamochodowy_RP_Cars.model.Model;
+import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -43,7 +44,16 @@ public class ModelService {
 
     public void updateModel(Model model) {
         session.beginTransaction();
-        session.update(model);
+        Query query = session.createSQLQuery("CALL MODEL_UPD(:ID" +
+                        ",:MARKA" +
+                        ",:NAZWA_MODELU" +
+                        ",:TYP_NADWOZIA)")
+                .addEntity(Model.class)
+                .setParameter("ID", model.getId())
+                .setParameter("MARKA", model.getMarka())
+                .setParameter("NAZWA_MODELU", model.getNazwa_modelu())
+                .setParameter("TYP_NADWOZIA", model.getTyp_nadwozia());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 
