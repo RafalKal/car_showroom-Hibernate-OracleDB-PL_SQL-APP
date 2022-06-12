@@ -2,13 +2,10 @@ package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
 import com.example.KomisSamochodowy_RP_Cars.model.Model;
-import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import javax.persistence.metamodel.EntityType;
 import java.util.List;
-import java.util.Set;
 
 public class ModelService {
 
@@ -17,7 +14,15 @@ public class ModelService {
 
     public void saveModel(Model model) {
         session.beginTransaction();
-        session.save(model);
+        Query query = session.createNativeQuery("CALL MODEL_INS(:TYP_NADWOZIA" +
+                        ",:NAZWA_MODELU" +
+                        ",NULL" +
+                        ",:MARKA)")
+                .addEntity(Model.class)
+                .setParameter("TYP_NADWOZIA", model.getTyp_nadwozia())
+                .setParameter("NAZWA_MODELU", model.getNazwa_modelu())
+                .setParameter("MARKA", model.getMarka());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 
@@ -29,18 +34,6 @@ public class ModelService {
         query.executeUpdate();
         session.getTransaction().commit();
     }
-
-    //    public void removeModelById(long id)
-//    {
-//        Session session;
-//        Model model;
-//
-//        session = sessionFactory.getCurrentSession();
-//        model = (Model)session.load(Model.class,id);
-//        session.delete(model);
-//
-//        session.flush() ;
-//    }
 
     public void updateModel(Model model) {
         session.beginTransaction();
@@ -73,9 +66,4 @@ public class ModelService {
         session.getTransaction().commit();
         return model;
     }
-//    public void removeModelByPROCEDURE(Model model) {
-//        session.beginTransaction();
-//        session.remove(model);
-//        session.getTransaction().commit();
-//    }
 }

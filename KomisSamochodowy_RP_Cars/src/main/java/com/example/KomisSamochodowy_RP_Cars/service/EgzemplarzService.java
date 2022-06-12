@@ -28,18 +28,6 @@ public class EgzemplarzService {
         session.getTransaction().commit();
     }
 
-//    public void removeModelById(long id)
-//    {
-//        Session session;
-//        Model model;
-//
-//        session = sessionFactory.getCurrentSession();
-//        model = (Model)session.load(Model.class,id);
-//        session.delete(model);
-//
-//        session.flush() ;
-//    }
-
     public void updateEgzemplarz(Egzemplarz egzemplarz)
     {
         session.beginTransaction();
