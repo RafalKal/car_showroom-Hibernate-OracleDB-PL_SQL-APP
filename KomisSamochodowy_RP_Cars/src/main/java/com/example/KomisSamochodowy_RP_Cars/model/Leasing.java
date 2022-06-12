@@ -6,13 +6,6 @@ import java.time.LocalDate;
 
 @Entity(name="Leasing_Tabelka")
 @Table(name="LEASING_TABELKA")
-@NamedStoredProcedureQuery(
-        name = "LEASING_DEL",
-        procedureName = "LEASING_DEL",
-        parameters = {
-                @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "P_ID_LEASINGU")
-        }
-)
 public class Leasing implements Serializable{
 
     @Id

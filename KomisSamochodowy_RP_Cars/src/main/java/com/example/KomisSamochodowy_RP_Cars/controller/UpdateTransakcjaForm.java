@@ -1,7 +1,5 @@
 package com.example.KomisSamochodowy_RP_Cars.controller;
 
-import com.example.KomisSamochodowy_RP_Cars.model.Egzemplarz;
-import com.example.KomisSamochodowy_RP_Cars.model.Klient;
 import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import com.example.KomisSamochodowy_RP_Cars.service.EgzemplarzService;
 import com.example.KomisSamochodowy_RP_Cars.service.KlientService;
@@ -16,7 +14,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.hibernate.exception.DataException;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 

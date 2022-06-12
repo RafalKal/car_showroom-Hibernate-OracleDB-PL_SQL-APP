@@ -120,6 +120,28 @@
       </content>
     </Tab>
 
+        <Tab fx:id="leasingiTab" text="Leasingi / Wypożyczenia">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TableView fx:id="leasingTableView" layoutX="-6.0" layoutY="75.0" prefHeight="374.0" prefWidth="800.0">
+                            <columns>
+                                <TableColumn fx:id="idLeasinguColumn" prefWidth="96.0" text="ID Leasingu" />
+                                <TableColumn fx:id="idKlientaColumn" prefWidth="82.0" text="ID Klienta" />
+                                <TableColumn fx:id="idEgzemplarzaColumn" prefWidth="105.0" text="ID Egzemplarz" />
+                                <TableColumn fx:id="dataPoczatekColumn" prefWidth="100.0" text="Data początek" />
+                                <TableColumn fx:id="dataKoncowaColumn" prefWidth="102.0" text="Data końcowa" />
+                                <TableColumn fx:id="oplataMiesiecznaColumn" prefWidth="121.0" text="Opłata miesięczna" />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="logoutButtonLeasing" layoutX="673.0" layoutY="25.0" mnemonicParsing="false" onAction="#logout" text="Wyloguj się" />
+                        <Button fx:id="addLeasingButton" layoutX="31.0" layoutY="24.0" mnemonicParsing="false" onAction="#addLeasingToDataBase" text="Dodaj" />
+                        <Button fx:id="removeLeasingButton" layoutX="109.0" layoutY="24.0" mnemonicParsing="false" onAction="#removeLeasingFromDataBase" text="Usuń" />
+                        <Button fx:id="updateLeasingButton" layoutX="187.0" layoutY="25.0" mnemonicParsing="false" onAction="#updateLeasingInDataBase" text="Zmień" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+
       <Tab fx:id="transakcjaKupnaTab" text="Transakcje Kupna">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -131,35 +153,12 @@
                         <TableColumn fx:id="idEgzemplarzaColumn1" prefWidth="113.0" text="ID Egzemplarz" />
                         <TableColumn fx:id="dataZakupuColumn" prefWidth="128.0" text="Data zakupu" />
                         <TableColumn fx:id="dlugoscGwarancjiColumn" prefWidth="129.0" text="Długość gwarancji" />
-                        <TableColumn fx:id="cenaTransakcjiColumn" prefWidth="110.0" text="Cena" />
                     </columns>
                   </TableView>
                   <Button fx:id="logoutButtonTransakcja_kupna" layoutX="672.0" layoutY="27.0" mnemonicParsing="false" onAction="#logout" text="Wyloguj się" />
                   <Button fx:id="addTransakcja_KupnaButton" layoutX="30.0" layoutY="26.0" mnemonicParsing="false" onAction="#addTransakcjaToDataBase" text="Dodaj" />
                   <Button fx:id="removeTransakcja_KupnaButton" layoutX="116.0" layoutY="27.0" mnemonicParsing="false" onAction="#removeTransakcjaFromDataBase" text="Usuń" />
                   <Button fx:id="updateTransakcja_KupnaButton" layoutX="187.0" layoutY="27.0" mnemonicParsing="false" onAction="#updateTransakcjaInDataBase" text="Zmień" />
-               </children></AnchorPane>
-         </content>
-      </Tab>
-
-      <Tab fx:id="leasingiTab" text="Leasingi / Wypożyczenia">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView fx:id="leasingTableView" layoutX="-6.0" layoutY="75.0" prefHeight="374.0" prefWidth="800.0">
-                    <columns>
-                      <TableColumn fx:id="idLeasinguColumn" prefWidth="96.0" text="ID Leasingu" />
-                      <TableColumn fx:id="idKlientaColumn" prefWidth="82.0" text="ID Klienta" />
-                        <TableColumn fx:id="idEgzemplarzaColumn" prefWidth="105.0" text="ID Egzemplarz" />
-                        <TableColumn fx:id="dataPoczatekColumn" prefWidth="100.0" text="Data początek" />
-                        <TableColumn fx:id="dataKoncowaColumn" prefWidth="102.0" text="Data końcowa" />
-                        <TableColumn fx:id="oplataMiesiecznaColumn" prefWidth="121.0" text="Opłata miesięczna" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="logoutButtonLeasing" layoutX="673.0" layoutY="25.0" mnemonicParsing="false" onAction="#logout" text="Wyloguj się" />
-                  <Button fx:id="addLeasingButton" layoutX="31.0" layoutY="24.0" mnemonicParsing="false" onAction="#addLeasingToDataBase" text="Dodaj" />
-                  <Button fx:id="removeLeasingButton" layoutX="109.0" layoutY="24.0" mnemonicParsing="false" onAction="#removeLeasingFromDataBase" text="Usuń" />
-                  <Button fx:id="updateLeasingButton" layoutX="187.0" layoutY="25.0" mnemonicParsing="false" onAction="#updateLeasingInDataBase" text="Zmień" />
                </children></AnchorPane>
          </content>
       </Tab>

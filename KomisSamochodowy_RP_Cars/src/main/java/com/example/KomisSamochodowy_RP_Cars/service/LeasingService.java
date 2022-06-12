@@ -2,7 +2,7 @@ package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
 import com.example.KomisSamochodowy_RP_Cars.model.Leasing;
-import javafx.collections.FXCollections;
+import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -14,21 +14,8 @@ public class LeasingService {
     public static final Session session = sessionFactory.openSession();
 
     public void saveLeasing(Leasing leasing){
-//        session.beginTransaction();
-//        session.save(leasing);
-//        session.getTransaction().commit();
-
         session.beginTransaction();
-//        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_UPD(:DATA_ZAKUPU\n" +
-//                                                                    ",DLUGOSC_GWARANCJI\n" +
-//                                                                    ",EGZEMPLARZ_ID\n" +
-//                                                                    ",KLIENT_ID\n")
-//                .addEntity(Leasing.class)
-//                .setParameter("DATA_ZAKUPU", egzemplarz.get)
-//                .setParameter("DLUGOSC_GWARANCJI", egzemplarz.get)
-//                .setParameter("EGZEMPLARZ_ID", egzemplarz.get)
-//                .setParameter("KLIENT_ID", data_poczatek);
-//        query.executeUpdate();
+        session.save(leasing);
         session.getTransaction().commit();
     }
 
@@ -43,7 +30,35 @@ public class LeasingService {
 
     public void updateLeasing(Leasing leasing) {
         session.beginTransaction();
-        session.update(leasing);
+//        Query query = session.createSQLQuery("CALL LEASING_UPD(:ID" +
+//                        ",:KLIENT_ID" +
+//                        ",:EGZEMPLARZ_ID" +
+//                        ",:DATA_POCZĄTEK)" +
+//                        ",:DATA_KONIEC" +
+//                        ",:OPLATA_MIESIECZNA)")
+//                .addEntity(Leasing.class)
+//                .setParameter("ID", leasing.getId())
+//                .setParameter("KLIENT_ID", leasing.getKlient().getId())
+//                .setParameter("EGZEMPLARZ_ID", leasing.getEgzemplarz().getId())
+//                .setParameter("DATA_POCZĄTEK", leasing.getData_poczatek())
+//                .setParameter("DATA_KONIEC", leasing.getData_koniec())
+//                .setParameter("OPLATA_MIESIECZNA", leasing.getOplata_miesieczna());
+//                query.executeUpdate();
+//        session.getTransaction().commit();
+        Query query = session.createSQLQuery("CALL LEASING_UPD(:ID" +
+                        ",:KLIENT_ID" +
+                        ",:EGZEMPLARZ_ID" +
+                        ",:DATA_POCZĄTEK" +
+                        ",:DATA_KONIEC" +
+                        ",:OPLATA_MIESIECZNA)")
+                .addEntity(Leasing.class)
+                .setParameter("ID", leasing.getId())
+                .setParameter("KLIENT_ID", leasing.getKlient().getId())
+                .setParameter("EGZEMPLARZ_ID", leasing.getEgzemplarz().getId())
+                .setParameter("DATA_POCZĄTEK", leasing.getData_poczatek())
+                .setParameter("DATA_KONIEC", leasing.getData_koniec())
+                .setParameter("OPLATA_MIESIECZNA", leasing.getOplata_miesieczna());
+        query.executeUpdate();
         session.getTransaction().commit();
     }
 
@@ -63,4 +78,17 @@ public class LeasingService {
         session.getTransaction().commit();
         return leasing;
     }
+
+    public static void main(String[] args) {
+        EgzemplarzService egzemplarzService = new EgzemplarzService();
+        KlientService klientService = new KlientService();
+        Leasing leasing = new Leasing(klientService.getKlientById(53), egzemplarzService.getEgzemplarzById(49), null, null, 12);
+        LeasingService leasingService = new LeasingService();
+        leasingService.saveLeasing(leasing);
+        System.out.println("DODANO LEASING?");
+        leasingService.updateLeasing(leasing);
+        System.out.println("zmieniono LEASING?");
+
+    }
+
 }

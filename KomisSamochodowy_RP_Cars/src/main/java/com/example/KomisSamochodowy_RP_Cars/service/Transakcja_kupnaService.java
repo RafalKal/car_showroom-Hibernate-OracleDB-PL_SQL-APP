@@ -1,6 +1,7 @@
 package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
+import com.example.KomisSamochodowy_RP_Cars.model.Egzemplarz;
 import com.example.KomisSamochodowy_RP_Cars.model.Leasing;
 import com.example.KomisSamochodowy_RP_Cars.model.Transakcja_kupna;
 import org.hibernate.Session;
@@ -33,9 +34,9 @@ public class Transakcja_kupnaService {
 
     public void removeTransakcja_kupna(Transakcja_kupna transakcja_kupna){
         session.beginTransaction();
-        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_DEL(:id)")
+        Query query = session.createSQLQuery("CALL TRANSAKCJA_KUPNA_DEL(:ID)")
                 .addEntity(Transakcja_kupna.class)
-                .setParameter("id", transakcja_kupna.getId());
+                .setParameter("ID", transakcja_kupna.getId());
         query.executeUpdate();
         session.getTransaction().commit();
     }
@@ -71,5 +72,17 @@ public class Transakcja_kupnaService {
         Transakcja_kupna transakcja_kupna = (Transakcja_kupna) session.get(Transakcja_kupna.class, id);
         session.getTransaction().commit();
         return transakcja_kupna;
+    }
+
+    public static void main(String[] args) {
+        EgzemplarzService egzemplarzService = new EgzemplarzService();
+        KlientService klientService = new KlientService();
+        Transakcja_kupnaService transakcja_kupnaService = new Transakcja_kupnaService();
+        Transakcja_kupna transakcja_kupna = new Transakcja_kupna(klientService.getKlientById(53), egzemplarzService.getEgzemplarzById(49), null, 1);
+        transakcja_kupnaService.saveTransakcja_kupna(transakcja_kupna);
+        System.out.println("DODANO TRANSAKCJE?");
+        transakcja_kupnaService.removeTransakcja_kupna(transakcja_kupna);
+        System.out.println("zmieniono TRANAKCJE?");
+
     }
 }

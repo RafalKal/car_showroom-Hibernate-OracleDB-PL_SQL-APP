@@ -1,6 +1,8 @@
 package com.example.KomisSamochodowy_RP_Cars.controller;
 
 import com.example.KomisSamochodowy_RP_Cars.model.Leasing;
+import com.example.KomisSamochodowy_RP_Cars.service.EgzemplarzService;
+import com.example.KomisSamochodowy_RP_Cars.service.KlientService;
 import com.example.KomisSamochodowy_RP_Cars.service.LeasingService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -30,16 +32,16 @@ public class UpdateLeasingForm {
         textField1.setMaxLength(3);
         Label label2 = new Label("ID egzemplarza, np.: \"5\"");
         RestrictiveTextField textField2 = new RestrictiveTextField("[id]");
-        textField1.setMaxLength(3);
+        textField2.setMaxLength(3);
         Label label3 = new Label("Data początek, np.: \"2000-10-10\"");
         RestrictiveTextField textField3 = new RestrictiveTextField("size10");
-        textField1.setMaxLength(12);
+        textField3.setMaxLength(12);
         Label label4 = new Label("Data koniec, np.: \"2000-10-10\"");
         RestrictiveTextField textField4 = new RestrictiveTextField("size10");
-        textField1.setMaxLength(12);
+        textField4.setMaxLength(12);
         Label label5 = new Label("Opłata miesięczna, np.: \"500\"");
         RestrictiveTextField textField5 = new RestrictiveTextField("size4");
-        textField1.setMaxLength(4);
+        textField5.setMaxLength(4);
 
         Button submitButton = new Button("Zmień");
 
@@ -48,8 +50,8 @@ public class UpdateLeasingForm {
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
-                int klient_id = -1;
-                int egzemplarz_id = -1;
+                int id_klient = -1;
+                int id_egzemplarz = -1;
                 String data_poczatekStr = null;
                 String data_koniecStr = null;
                 double oplata_miesieczna = 0;
@@ -57,18 +59,26 @@ public class UpdateLeasingForm {
                 LeasingService leasingService = new LeasingService();
 
                 try {
-                    klient_id = Integer.parseInt(textField1.getText());
-                    egzemplarz_id = Integer.parseInt(textField2.getText());
+                    id_klient = Integer.parseInt(textField1.getText());
+                    id_egzemplarz = Integer.parseInt(textField2.getText());
                     data_poczatekStr = textField3.getText();
                     LocalDate data_poczatek = LocalDate.parse(data_poczatekStr);
                     data_koniecStr = textField4.getText();
                     LocalDate data_koniec = LocalDate.parse(data_koniecStr);
                     oplata_miesieczna = Double.parseDouble(textField5.getText());
 
+                    KlientService klientService = new KlientService();
+                    EgzemplarzService egzemplarzService = new EgzemplarzService();
 
-                    leasing.setOplata_miesieczna(oplata_miesieczna);
+                    leasing.setKlient(klientService.getKlientById(id_klient));
+                    leasing.setEgzemplarz(egzemplarzService.getEgzemplarzById(id_egzemplarz));
                     leasing.setData_poczatek(data_poczatek);
                     leasing.setData_koniec(data_koniec);
+                    leasing.setOplata_miesieczna(oplata_miesieczna);
+
+                    leasingService.updateLeasing(leasing);
+
+                    window.close();
 
 
                 }catch (DataException | DateTimeParseException | NumberFormatException exception){

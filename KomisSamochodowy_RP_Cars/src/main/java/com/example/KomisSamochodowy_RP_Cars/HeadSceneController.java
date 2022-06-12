@@ -339,24 +339,6 @@ public class HeadSceneController implements Initializable {
         leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
         leasingTableView.setItems(leasingObservableList);
         leasingTableView.refresh();
-
-//        Leasing leasing = leasingTableView.getSelectionModel().getSelectedItem();
-//        int leasing_id = leasing.getId();
-//        //modelService.removeModel(model);
-//
-//        session.beginTransaction();
-//
-//        Query query = session.createSQLQuery("CALL LEASING_DEL(:id)")
-//                .addEntity(Leasing.class)
-//                .setParameter("id", leasing_id);
-//        query.executeUpdate();
-//        session.getTransaction().commit();
-
-
-
-        leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
-        leasingTableView.setItems(leasingObservableList);
-        leasingTableView.refresh();
     }
 
     @FXML
