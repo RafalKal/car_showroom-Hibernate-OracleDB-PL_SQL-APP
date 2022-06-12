@@ -51,20 +51,20 @@ public class Leasing implements Serializable{
         this.id = id;
     }
 
-    public Egzemplarz getEgzemplarz() {
-        return egzemplarz;
-    }
-
-    public void setEgzemplarz(Egzemplarz egzemplarz) {
-        this.egzemplarz = egzemplarz;
-    }
-
     public Klient getKlient() {
         return klient;
     }
 
     public void setKlient(Klient klient) {
         this.klient = klient;
+    }
+
+    public Egzemplarz getEgzemplarz() {
+        return egzemplarz;
+    }
+
+    public void setEgzemplarz(Egzemplarz egzemplarz) {
+        this.egzemplarz = egzemplarz;
     }
 
     public LocalDate getData_poczatek() {

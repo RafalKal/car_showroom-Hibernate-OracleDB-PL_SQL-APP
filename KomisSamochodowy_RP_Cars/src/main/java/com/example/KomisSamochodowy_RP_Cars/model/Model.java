@@ -77,4 +77,14 @@ public class Model implements Serializable{
     public void setTyp_nadwozia(String typ_nadwozia) {
         this.typ_nadwozia = typ_nadwozia;
     }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "id=" + id +
+                ", marka='" + marka + '\'' +
+                ", nazwa_modelu='" + nazwa_modelu + '\'' +
+                ", typ_nadwozia='" + typ_nadwozia + '\'' +
+                '}';
+    }
 }

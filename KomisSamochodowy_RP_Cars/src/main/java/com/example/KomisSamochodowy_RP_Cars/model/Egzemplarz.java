@@ -17,13 +17,13 @@ public class Egzemplarz implements Serializable{
     private Model model;
 
     @Column(name="rok_produkcji")
-    private int rok_produkcji;
+    private Integer rok_produkcji;
 
     @Column(name="pojemnosc_silnika")
-    private int pojemnosc_silnika;
+    private Integer pojemnosc_silnika;
 
     @Column(name="przebieg")
-    private int przebieg;
+    private Integer przebieg;
 
     @Column(name="rodzaj_paliwa", length = 15)
     private String rodzaj_paliwa;
@@ -35,10 +35,10 @@ public class Egzemplarz implements Serializable{
     private String vin;
 
     @Column(name="dostepnosc")
-    private boolean dostepnosc;
+    private Boolean dostepnosc;
 
     @Column(name="cena")
-    private int cena;
+    private Integer cena;
 
 //    @OneToMany(mappedBy = "egzemplarz")
 //    private List<Leasing> leasingi;
@@ -80,27 +80,27 @@ public class Egzemplarz implements Serializable{
         this.model = model;
     }
 
-    public int getRok_produkcji() {
+    public Integer getRok_produkcji() {
         return rok_produkcji;
     }
 
-    public void setRok_produkcji(int rok_produkcji) {
+    public void setRok_produkcji(Integer rok_produkcji) {
         this.rok_produkcji = rok_produkcji;
     }
 
-    public int getPojemnosc_silnika() {
+    public Integer getPojemnosc_silnika() {
         return pojemnosc_silnika;
     }
 
-    public void setPojemnosc_silnika(int pojemnosc_silnika) {
+    public void setPojemnosc_silnika(Integer pojemnosc_silnika) {
         this.pojemnosc_silnika = pojemnosc_silnika;
     }
 
-    public int getPrzebieg() {
+    public Integer getPrzebieg() {
         return przebieg;
     }
 
-    public void setPrzebieg(int przebieg) {
+    public void setPrzebieg(Integer przebieg) {
         this.przebieg = przebieg;
     }
 
@@ -128,19 +128,35 @@ public class Egzemplarz implements Serializable{
         this.vin = vin;
     }
 
-    public boolean isDostepnosc() {
+    public Boolean getDostepnosc() {
         return dostepnosc;
     }
 
-    public void setDostepnosc(boolean dostepnosc) {
+    public void setDostepnosc(Boolean dostepnosc) {
         this.dostepnosc = dostepnosc;
     }
 
-    public int getCena() {
+    public Integer getCena() {
         return cena;
     }
 
-    public void setCena(int cena) {
+    public void setCena(Integer cena) {
         this.cena = cena;
+    }
+
+    @Override
+    public String toString() {
+        return "Egzemplarz{" +
+                "id=" + id +
+                ", model=" + model +
+                ", rok_produkcji=" + rok_produkcji +
+                ", pojemnosc_silnika=" + pojemnosc_silnika +
+                ", przebieg=" + przebieg +
+                ", rodzaj_paliwa='" + rodzaj_paliwa + '\'' +
+                ", kolor='" + kolor + '\'' +
+                ", vin='" + vin + '\'' +
+                ", dostepnosc=" + dostepnosc +
+                ", cena=" + cena +
+                '}';
     }
 }

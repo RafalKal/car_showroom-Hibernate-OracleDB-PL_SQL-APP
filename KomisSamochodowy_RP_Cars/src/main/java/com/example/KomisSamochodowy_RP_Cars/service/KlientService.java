@@ -64,9 +64,38 @@ public class KlientService {
     public void updateKlient(Klient klient)
     {
         session.beginTransaction();
-        Query query = session.createSQLQuery("CALL KLIENT_DEL(:id)")
+        Date data = Date.valueOf(klient.getData_urodzenia());
+        Query query = session.createNativeQuery(   """
+                         CALL KLIENT_UPD(
+                                         NULL
+                                         ,:ULICA
+                                         ,:TELEFON
+                                         ,:PESEL
+                                         ,:IMIE
+                                         ,:EMAIL
+                                         ,:NAZWISKO
+                                         ,:KOD_POCZTOWY
+                                         ,:NUMER_DOWODU
+                                         ,:NIP
+                                         ,:NUMER_DOMU
+                                         ,:MIEJSCOWOSC
+                                         ,:DATA_URODZENIA
+                                         ,:FIRMA)
+                """)
                 .addEntity(Klient.class)
-                .setParameter("id", klient.getId());
+                .setParameter("ULICA", klient.getUlica())
+                .setParameter("TELEFON", klient.getTelefon())
+                .setParameter("PESEL", klient.getPesel())
+                .setParameter("IMIE", klient.getImie())
+                .setParameter("EMAIL", klient.getEmail())
+                .setParameter("NAZWISKO", klient.getNazwisko())
+                .setParameter("KOD_POCZTOWY", klient.getKod_pocztowy())
+                .setParameter("NUMER_DOWODU", klient.getNumer_dowodu())
+                .setParameter("NIP", klient.getNip())
+                .setParameter("NUMER_DOMU", klient.getNumer_domu())
+                .setParameter("MIEJSCOWOSC", klient.getMiejscowosc())
+                .setParameter("DATA_URODZENIA", data)
+                .setParameter("FIRMA", klient.getFirma());
         query.executeUpdate();
         session.getTransaction().commit();
     }
@@ -110,7 +139,7 @@ public class KlientService {
 
         System.out.println(4);
 
-        klientService.saveKlient(klient);
+        klientService.updateKlient(klient);
 
         System.out.println(5);
 

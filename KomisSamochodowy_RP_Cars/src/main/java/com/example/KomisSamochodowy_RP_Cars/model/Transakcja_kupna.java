@@ -25,7 +25,7 @@ public class Transakcja_kupna implements Serializable{
     private LocalDate data_zakupu;
 
     @Column(name="dlugosc_gwarancji")
-    private int dlugosc_gwarancji;
+    private Integer dlugosc_gwarancji;
 
     public Transakcja_kupna(Klient klient,
                             Egzemplarz egzemplarz,
@@ -48,20 +48,20 @@ public class Transakcja_kupna implements Serializable{
         this.id = id;
     }
 
-    public Egzemplarz getEgzemplarz() {
-        return egzemplarz;
-    }
-
-    public void setEgzemplarz(Egzemplarz egzemplarz) {
-        this.egzemplarz = egzemplarz;
-    }
-
     public Klient getKlient() {
         return klient;
     }
 
     public void setKlient(Klient klient) {
         this.klient = klient;
+    }
+
+    public Egzemplarz getEgzemplarz() {
+        return egzemplarz;
+    }
+
+    public void setEgzemplarz(Egzemplarz egzemplarz) {
+        this.egzemplarz = egzemplarz;
     }
 
     public LocalDate getData_zakupu() {
@@ -72,11 +72,11 @@ public class Transakcja_kupna implements Serializable{
         this.data_zakupu = data_zakupu;
     }
 
-    public int getDlugosc_gwarancji() {
+    public Integer getDlugosc_gwarancji() {
         return dlugosc_gwarancji;
     }
 
-    public void setDlugosc_gwarancji(int dlugosc_gwarancji) {
+    public void setDlugosc_gwarancji(Integer dlugosc_gwarancji) {
         this.dlugosc_gwarancji = dlugosc_gwarancji;
     }
 }

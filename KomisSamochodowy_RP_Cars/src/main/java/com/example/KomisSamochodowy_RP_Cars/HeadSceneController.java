@@ -456,6 +456,7 @@ public class HeadSceneController implements Initializable {
         idModeluColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Egzemplarz,Integer>,ObservableValue<Integer>>(){
             @Override
             public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Egzemplarz, Integer> param) {
+                System.out.println(param.getValue());
                 return new SimpleIntegerProperty(param.getValue().getModel().getId()).asObject();
             }
         });
