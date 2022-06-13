@@ -7,6 +7,11 @@ import java.time.LocalDate;
 
 @Entity(name = "Klient_Tabelka")
 @Table(name="KLIENT_TABELKA")
+@NamedStoredProcedureQuery(
+        name = "KLIENT_SEL",
+        procedureName = "KLIENT_SEL",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, type = Klient.class, name = "my_cursor") })
 public class Klient implements Serializable {
 
     @Id

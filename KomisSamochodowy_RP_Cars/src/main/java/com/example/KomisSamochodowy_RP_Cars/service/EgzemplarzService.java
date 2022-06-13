@@ -2,12 +2,9 @@ package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
 import com.example.KomisSamochodowy_RP_Cars.model.Egzemplarz;
-import com.example.KomisSamochodowy_RP_Cars.model.Klient;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-
-import java.sql.Date;
 import java.util.List;
 
 public class EgzemplarzService {
@@ -57,7 +54,7 @@ public class EgzemplarzService {
     {
         session.beginTransaction();
         Query query = session.createNativeQuery(   """
-                          CALL EGZEMPLARZ_INS(NULL
+                          CALL EGZEMPLARZ_UPD(NULL
                                               ,:POJEMNOSC_SILNIKA
                                               ,:ROK_PRODUKCJI
                                               ,:MODEL_ID
@@ -102,5 +99,4 @@ public class EgzemplarzService {
 
         return egzemplarz;
     }
-
 }

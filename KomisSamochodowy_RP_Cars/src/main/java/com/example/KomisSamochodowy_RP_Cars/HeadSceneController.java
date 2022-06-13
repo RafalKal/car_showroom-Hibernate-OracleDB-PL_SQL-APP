@@ -26,14 +26,11 @@ import javafx.util.Duration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-
-import javax.persistence.StoredProcedureQuery;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -453,9 +450,8 @@ public class HeadSceneController implements Initializable {
         modelObservableList = FXCollections.observableArrayList(modelService.getModelTable());
         modelTableView.setItems(modelObservableList);
 
-        List<Model> list = new ArrayList<>();
-
-
+//        List<Model> list = new ArrayList<>();
+//
 //        session.beginTransaction();
 //        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("MODEL_SEL");
 //        query.execute();
@@ -466,7 +462,6 @@ public class HeadSceneController implements Initializable {
 //        modelTableView.setItems(modelObservableList);
 //        session.getTransaction();
 //        session.close();
-
 
 
         //------- EGZEMPLARZ INITIALIZE -------|------- EGZEMPLARZ INITIALIZE -------|
@@ -491,6 +486,19 @@ public class HeadSceneController implements Initializable {
         egzemplarzObservableList = FXCollections.observableArrayList(egzemplarzService.getEgzemplarzTable());
         egzemplarzTableView.setItems(egzemplarzObservableList);
 
+        //        List<Egzemplarz> list = new ArrayList<>();
+        //
+        //        session.beginTransaction();
+        //        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("EGZEMPLARZ_SEL");
+        //        query.execute();
+        //
+        //        list = query.getResultList();
+        //
+        //        egzemplarzObservableList = FXCollections.observableArrayList(list);
+        //        egzemplarzTableView.setItems(egzemplarzObservableList);
+        //        session.getTransaction();
+        //        session.close();
+
 
         //--- KLIENCI INITIALIZE ---|--- KLIENCI INITIALIZE ---|--- KLIENCI INITIALIZE ---|
         idKlientColumn.setCellValueFactory(new PropertyValueFactory<Klient, Integer>("id"));
@@ -510,6 +518,19 @@ public class HeadSceneController implements Initializable {
 
         klientObservableList = FXCollections.observableArrayList(klientService.getKlientTable());
         klientTableView.setItems(klientObservableList);
+
+        //        List<Klient> list = new ArrayList<>();
+        //
+        //        session.beginTransaction();
+        //        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("KLIENT_SEL");
+        //        query.execute();
+        //
+        //        list = query.getResultList();
+        //
+        //        klientObservableList = FXCollections.observableArrayList(list);
+        //        klientTableView.setItems(klientObservableList);
+        //        session.getTransaction();
+        //        session.close();
 
 
         //--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|--- LEASINGI INITIALIZE ---|
@@ -533,6 +554,19 @@ public class HeadSceneController implements Initializable {
         leasingObservableList = FXCollections.observableArrayList(leasingService.getLeasingTable());
         leasingTableView.setItems(leasingObservableList);
 
+        //        List<Leasing> list = new ArrayList<>();
+        //
+        //        session.beginTransaction();
+        //        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("LEASING_SEL");
+        //        query.execute();
+        //
+        //        list = query.getResultList();
+        //
+        //        leasingObservableList = FXCollections.observableArrayList(list);
+        //        leasingTableView.setItems(leasingObservableList);
+        //        session.getTransaction();
+        //        session.close();
+
 
         //---- TRANSAKCJE KUPNA INITIALIZE ----|---- TRANSAKCJE KUPNA INITIALIZE ----|
         idTransakcjiColumn.setCellValueFactory(new PropertyValueFactory<Transakcja_kupna, Integer>("id"));
@@ -553,5 +587,18 @@ public class HeadSceneController implements Initializable {
 
         transakcja_kupnaObservableList = FXCollections.observableArrayList(transakcja_kupnaService.getTransakcja_kupnaTable());
         transakcjeTableView.setItems(transakcja_kupnaObservableList);
+
+        //        List<Transakcje_kupna> list = new ArrayList<>();
+        //
+        //        session.beginTransaction();
+        //        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("TRANSAKCJA_KUPNA_SEL");
+        //        query.execute();
+        //
+        //        list = query.getResultList();
+        //
+        //        transakcje_kupnaObservableList = FXCollections.observableArrayList(list);
+        //        transakcje_kupnaTableView.setItems(transakcje_kupnaObservableList);
+        //        session.getTransaction();
+        //        session.close();
     }
 }

@@ -6,6 +6,11 @@ import java.time.LocalDate;
 
 @Entity(name = "Transakcja_kupna_Tabelka")
 @Table(name="TRANSAKCJA_KUPNA_TABELKA")
+@NamedStoredProcedureQuery(
+        name = "TRANSAKCJA_KUPNA_SEL",
+        procedureName = "TRANSAKCJA_KUPNA_SEL",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, type = Transakcja_kupna.class, name = "my_cursor") })
 public class Transakcja_kupna implements Serializable{
 
     @Id

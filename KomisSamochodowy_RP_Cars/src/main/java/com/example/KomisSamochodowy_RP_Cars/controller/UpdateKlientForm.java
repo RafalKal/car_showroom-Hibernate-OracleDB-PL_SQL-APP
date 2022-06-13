@@ -141,7 +141,6 @@ public class UpdateKlientForm {
         Button buttonInAlert = new Button("Anuluj");
         buttonInAlert.setOnAction(e -> window.close());
 
-
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1, textField1,
                                     label2, textField2,

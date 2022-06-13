@@ -5,11 +5,15 @@ import java.io.Serializable;
 
 @Entity(name = "Egzemplarz_Tabelka")
 @Table(name="EGZEMPLARZ_TABELKA")
+@NamedStoredProcedureQuery(
+        name = "EGZEMPLARZ_SEL",
+        procedureName = "EGZEMPLARZ_SEL",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, type = Egzemplarz.class, name = "my_cursor") })
 public class Egzemplarz implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "id")
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,12 +43,6 @@ public class Egzemplarz implements Serializable{
 
     @Column(name="cena")
     private Integer cena;
-
-//    @OneToMany(mappedBy = "egzemplarz")
-//    private List<Leasing> leasingi;
-//
-//    @OneToMany(mappedBy = "egzemplarz")
-//    private List<Transakcja_kupna> transakcje_kupna;
 
     public Egzemplarz(Model model, int rok_produkcji,
                       int pojemnosc_silnika, int przebieg,
