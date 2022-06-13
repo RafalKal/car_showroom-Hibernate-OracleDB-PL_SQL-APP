@@ -2,9 +2,16 @@ package com.example.KomisSamochodowy_RP_Cars.service;
 
 import com.example.KomisSamochodowy_RP_Cars.HibernateUtil.SingletonConnection;
 import com.example.KomisSamochodowy_RP_Cars.model.Model;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+
+import javax.persistence.EntityManager;
+import javax.persistence.StoredProcedureQuery;
+import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModelService {
@@ -66,4 +73,15 @@ public class ModelService {
         session.getTransaction().commit();
         return model;
     }
+
+//    public static void main(String[] args) {
+//        session.beginTransaction();
+//        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("MODEL_SEL");
+//        query.execute();
+//
+////        List<Model> list = query.getResultList();
+////        ObservableList<String> kategorie = FXCollections.observableArrayList(list);
+////        kategoriaCombo.setItems(kategorie);
+//
+//    }
 }

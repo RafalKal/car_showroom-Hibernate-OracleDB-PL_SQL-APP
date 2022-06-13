@@ -9,7 +9,7 @@
         <property name="hibernate.connection.url">jdbc:oracle:thin:@Komis_high?TNS_ADMIN=/Users/admin/Documents/Wallet_Komis1</property>
         <property name="hibernate.connection.username">ADMIN</property>
         <property name="hibernate.connection.password">Komissamochodowy123</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle8iDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>

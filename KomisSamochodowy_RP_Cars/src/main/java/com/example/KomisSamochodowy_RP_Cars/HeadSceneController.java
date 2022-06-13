@@ -26,11 +26,14 @@ import javafx.util.Duration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+
+import javax.persistence.StoredProcedureQuery;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -449,6 +452,21 @@ public class HeadSceneController implements Initializable {
 
         modelObservableList = FXCollections.observableArrayList(modelService.getModelTable());
         modelTableView.setItems(modelObservableList);
+
+        List<Model> list = new ArrayList<>();
+
+
+//        session.beginTransaction();
+//        StoredProcedureQuery query = session.createNamedStoredProcedureQuery("MODEL_SEL");
+//        query.execute();
+//
+//        list = query.getResultList();
+//
+//        modelObservableList = FXCollections.observableArrayList(list);
+//        modelTableView.setItems(modelObservableList);
+//        session.getTransaction();
+//        session.close();
+
 
 
         //------- EGZEMPLARZ INITIALIZE -------|------- EGZEMPLARZ INITIALIZE -------|
