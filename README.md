@@ -1,4 +1,4 @@
-# CAR SHOWROOM - Hibernate - OracleDB - PL/SQL
+# R&P CAR SHOWROOM - Hibernate - OracleDB - PL/SQL
 
 A desktop application for operating and managing a car dealership.
 
