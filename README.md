@@ -1,3 +1,9 @@
-# Hibernate_OracleDB_CRUD
+# CAR SHOWROOM - OracleDB - PL/SQL
 
-Baza danych - sql developer - łączenie przez Cloud Wallet
+A desktop application for operating and managing a car dealership.
+
+Technologies: 
+ - Java, 
+ - JavaFX, 
+ - OracleDB
+ - PL/SQL
